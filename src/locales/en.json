@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Tarot de Marseille",
+    "description": "Interactive educational application for the Tarot de Marseille",
+    "loading": "Loading..."
+  },
+  "navigation": {
+    "home": "Home",
+    "learn": "Learn",
+    "practice": "Practice",
+    "about": "About"
+  },
+  "cards": {
+    "majorArcana": "Major Arcana",
+    "minorArcana": "Minor Arcana",
+    "suits": {
+      "wands": "Wands",
+      "cups": "Cups",
+      "swords": "Swords",
+      "coins": "Coins"
+    }
+  },
+  "actions": {
+    "shuffle": "Shuffle",
+    "draw": "Draw Card",
+    "reset": "Reset",
+    "flip": "Flip Card"
+  },
+  "language": {
+    "select": "Select Language",
+    "en": "English",
+    "pt-BR": "Portuguese (Brazil)",
+    "fr": "French"
+  }
+}

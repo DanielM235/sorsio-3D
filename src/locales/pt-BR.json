@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Tarô de Marselha",
+    "description": "Aplicativo educacional interativo para o Tarô de Marselha",
+    "loading": "Carregando..."
+  },
+  "navigation": {
+    "home": "Início",
+    "learn": "Aprender",
+    "practice": "Praticar",
+    "about": "Sobre"
+  },
+  "cards": {
+    "majorArcana": "Arcanos Maiores",
+    "minorArcana": "Arcanos Menores",
+    "suits": {
+      "wands": "Paus",
+      "cups": "Copas",
+      "swords": "Espadas",
+      "coins": "Ouros"
+    }
+  },
+  "actions": {
+    "shuffle": "Embaralhar",
+    "draw": "Tirar Carta",
+    "reset": "Reiniciar",
+    "flip": "Virar Carta"
+  },
+  "language": {
+    "select": "Selecionar Idioma",
+    "en": "Inglês",
+    "pt-BR": "Português (Brasil)",
+    "fr": "Francês"
+  }
+}
