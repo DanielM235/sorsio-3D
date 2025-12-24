@@ -1,0 +1,534 @@
+{
+  "app": {
+    "title": "Tarô de Marselha",
+    "description": "Aplicativo educacional interativo para o Tarô de Marselha",
+    "loading": "Carregando..."
+  },
+  "menu": {
+    "explore": "Explorar Cartas",
+    "exploreDesc": "Descubra as 78 cartas do Tarô de Marselha",
+    "simpleDraw": "Tiragem Simples",
+    "simpleDrawDesc": "Tire uma carta e receba sua mensagem",
+    "resources": "Recursos",
+    "resourcesDesc": "Links externos e conteúdos adicionais",
+    "about": "Sobre",
+    "aboutDesc": "Saiba mais sobre este projeto"
+  },
+  "navigation": {
+    "home": "Início",
+    "back": "Voltar",
+    "menu": "Menu",
+    "learn": "Aprender",
+    "practice": "Praticar",
+    "about": "Sobre"
+  },
+  "cards": {
+    "majorArcana": "Arcanos Maiores",
+    "minorArcana": "Arcanos Menores",
+    "suits": {
+      "wands": "Paus",
+      "cups": "Copas",
+      "swords": "Espadas",
+      "coins": "Ouros"
+    },
+    "a01": {
+      "name": "O Mago",
+      "meaningUp": "Habilidade, diplomacia, destreza, sutileza; doença, dor, perda, desastre, armadilhas dos inimigos; confiança em si mesmo, vontade; o Consultante, se masculino.",
+      "meaningReversed": "Médico, Mago, doença mental, desgraça, preocupação.",
+      "description": "Uma figura juvenil na túnica de um mágico, com o rosto do divino Apolo, com um sorriso de confiança e olhos brilhantes. Acima de sua cabeça está o sinal misterioso do Espírito Santo, o sinal da vida, como um cordão sem fim formando o número 8 em posição horizontal. Ao redor de sua cintura está um cinto-serpente, a serpente parecendo devorar sua própria cauda. Isso é familiar para muitos como um símbolo convencional de eternidade, mas aqui indica mais especificamente a eternidade do alcance na mente."
+    },
+    "a02": {
+      "name": "A Sacerdotisa",
+      "meaningUp": "Segredos, mistério, o futuro ainda não revelado; a mulher que interessa o Consultante, se masculino; o Consultante ela mesma, se feminina; silêncio, tenacidade; mistério, sabedoria, ciência.",
+      "meaningReversed": "Paixão, ardor moral ou físico, vaidade, conhecimento superficial.",
+      "description": "Ela tem o crescente lunar aos seus pés, um diadema córneo em sua cabeça, com um globo no meio, e uma grande cruz solar em seu peito. O rolo em suas mãos está inscrito com a palavra Tora, significando a Grande Lei, a Lei Secreta e o segundo sentido da Palavra. Ela está sentada entre os pilares branco e negro do Templo místico, e o véu do Templo está atrás dela."
+    },
+    "a03": {
+      "name": "A Imperatriz",
+      "meaningUp": "Frutificação, ação, iniciativa, comprimento dos dias; o desconhecido, clandestino; também dificuldade, dúvida, ignorância.",
+      "meaningReversed": "Luz, verdade, o desenredar de assuntos emaranhados, alegrias públicas; segundo outra leitura, vacilação.",
+      "description": "Uma figura majestosa, sentada, tendo ricas vestes e um aspecto real, como uma filha do céu e da terra. Sua diadema é de doze estrelas, reunidas em cacho. O símbolo de Vênus está no escudo que repousa perto dela. Um campo de trigo amadurece diante dela, e além há uma queda d'água."
+    },
+    "a04": {
+      "name": "O Imperador",
+      "meaningUp": "Estabilidade, poder, proteção, realização; uma grande pessoa; ajuda, razão, convicção; também autoridade e vontade.",
+      "meaningReversed": "Benevolência, compaixão, crédito; também confusão aos inimigos, obstrução, imaturidade.",
+      "description": "Ele tem uma forma da Crux ansata para seu cetro e um globo em sua mão esquerda. Ele é um monarca coroado—comandante, majestoso, sentado em um trono, cujos braços são frontados por cabeças de carneiro. Ele é executivo e realização, o poder deste mundo, aqui vestido com seus mais altos atributos naturais."
+    },
+    "a05": {
+      "name": "O Papa",
+      "meaningUp": "Casamento, aliança, cativeiro, servidão; por outra conta, misericórdia e bondade; inspiração; o homem ao qual o Consultante recorre.",
+      "meaningReversed": "Sociedade, bom entendimento, concórdia, super-bondade, fraqueza.",
+      "description": "Ele usa a tríplice coroa e está sentado entre dois pilares. Em sua mão esquerda ele segura um cetro terminando na tríplice cruz, e com sua mão direita ele dá o sinal eclesiástico do esoterismo. A seus pés estão as chaves cruzadas, e dois ministros sacerdotais em albas se ajoelham diante dele."
+    },
+    "a06": {
+      "name": "Os Amantes",
+      "meaningUp": "Atração, amor, beleza, provações superadas.",
+      "meaningReversed": "Fracasso, desígnios insensatos. Outra conta fala de casamento frustrado e contrariedades de todas as sortes.",
+      "description": "O sol brilha no zênite, e abaixo uma grande figura alada com os braços estendidos, derramando influências. No primeiro plano estão duas figuras humanas, macho e fêmea, descobertas uma diante da outra, como Adão e Eva quando ocuparam pela primeira vez o paraíso do corpo terrestre."
+    },
+    "a07": {
+      "name": "O Carro",
+      "meaningUp": "Socorro, providência; também guerra, triunfo, presunção, vingança, problema.",
+      "meaningReversed": "Motim, querela, disputa, litígio, derrota.",
+      "description": "Uma figura direita e principesca carregando uma espada desembainhada. Sobre os ombros do herói vitorioso estão o Urim e o Thummim. Ele conduziu o cativeiro cativo; ele é conquista em todos os planos—na mente, na ciência, no progresso, em certas provações de iniciação. Duas esfinges puxam seu carro."
+    },
+    "a08": {
+      "name": "A Força",
+      "meaningUp": "Poder, energia, ação, coragem, magnanimidade; também sucesso completo e honras.",
+      "meaningReversed": "Despotismo, abuso de poder, fraqueza, discórdia, às vezes até desgraça.",
+      "description": "Uma mulher, sobre cuja cabeça paira o mesmo símbolo de vida que vimos na carta do Mago, fecha as mandíbulas de um leão. Sua força benéfica já subjulgou o leão, que agora é conduzido por uma corrente de flores."
+    },
+    "a09": {
+      "name": "O Eremita",
+      "meaningUp": "Prudência, circunspecção; também e sobretudo traição, dissimulação, astúcia, corrupção.",
+      "meaningReversed": "Dissimulação, disfarce, política, medo, prudência desarrazoada.",
+      "description": "A figura é vista segurando seu fanal em uma eminência. É uma estrela que brilha na lanterna. O Eremita não é um homem sábio em busca de verdade e justiça; sua lanterna intima que 'onde eu estou, você também pode estar.'"
+    },
+    "a10": {
+      "name": "A Roda da Fortuna",
+      "meaningUp": "Destino, fortuna, sucesso, elevação, sorte, felicidade.",
+      "meaningReversed": "Aumento, abundância, superfluo.",
+      "description": "As quatro Criaturas Vivas de Ezequiel ocupam os cantos da carta, e a roda em si segue as indicações de Levi em relação à visão de Ezequiel. O Esfinge é o equilíbrio nisso. A transliteração de Taro como Rota está inscrita na roda."
+    },
+    "a11": {
+      "name": "A Justiça",
+      "meaningUp": "Equidade, retidão, probidade, executivo; triunfo do lado merecedor em direito.",
+      "meaningReversed": "Direito em todos os seus departamentos, complicações jurídicas, bigotismo, parcialidade, severidade excessiva.",
+      "description": "A figura está sentada entre pilares, como a Sacerdotisa. O princípio moral que trata cada um segundo suas obras difere em sua essência do direito espiritual implícito na ideia de eleição."
+    },
+    "a12": {
+      "name": "O Pendurado",
+      "meaningUp": "Sabedoria, circunspecção, discernimento, provações, sacrifício, intuição, adivinhação, profecia.",
+      "meaningReversed": "Egoísmo, a multidão, corpo político.",
+      "description": "O patíbulo do qual ele está pendurado forma uma cruz Tau, enquanto a figura—da posição das pernas—forma uma cruz fylfot. Há uma auréola ao redor da cabeça do mártir aparente. A árvore do sacrifício é de madeira viva, com folhas nela; o rosto expressa um profundo enlevo, não sofrimento."
+    },
+    "a13": {
+      "name": "A Morte",
+      "meaningUp": "Fim, mortalidade, destruição, corrupção; também, para um homem, a perda de um benfeitor; para uma mulher, muito aborrecimento; para uma jovem moça, fracasso dos projetos de casamento.",
+      "meaningReversed": "Inércia, sono, letargia, petrificação, sonambulismo; esperança destruída.",
+      "description": "O misterioso cavaleiro se move lentamente, carregando uma bandeira negra blasonada com a Rosa Mística, que significa a vida. Entre dois pilares na borda do horizonte brilha o sol da imortalidade. O cavaleiro não carrega arma visível, mas rei e criança e jovem moça caem diante dele."
+    },
+    "a14": {
+      "name": "A Temperança",
+      "meaningUp": "Economia, moderação, frugalidade, gestão, acomodação.",
+      "meaningReversed": "Coisas relacionadas às igrejas, religiões, seitas, ao clero; também desunião, combinações desfavoráveis, interesses concorrentes.",
+      "description": "Um anjo alado, com o sinal do sol em sua testa e no peito o quadrado e o triângulo do septenário. A figura verte as essências de vida de cálice em cálice. Ela tem um pé na terra e um na água, ilustrando assim a natureza das essências."
+    },
+    "a15": {
+      "name": "O Diabo",
+      "meaningUp": "Devastação, violência, veemência, esforços extraordinários, força, fatalidade; o que é predestinado mas não por isso mau.",
+      "meaningReversed": "Fatalidade má, fraqueza, mesquinharia, cegueira.",
+      "description": "O Bode Cornudo de Mendès, com asas como as de um morcego, está de pé sobre um altar. No oco do estômago há o sinal de Mercúrio. Duas figuras, macho e fêmea, estão acorrentadas ao altar. Estas são análogas àquelas da carta dos Amantes, como se Adão e Eva após a Queda."
+    },
+    "a16": {
+      "name": "A Torre",
+      "meaningUp": "Miséria, angústia, indigência, adversidade, calamidade, desgraça, engano, ruína. É uma carta em particular de catástrofe imprevista.",
+      "meaningReversed": "A mesma coisa em um grau menor; também opressão, aprisionamento, tirania.",
+      "description": "É a ruína da Casa da Vida, quando o mal prevaleceu nela, e acima de tudo é o rasgamento de uma Casa de Doutrina. Ela ilustra a velha verdade que 'a menos que o Senhor construa a casa, eles trabalham em vão que a constroem.'"
+    },
+    "a17": {
+      "name": "A Estrela",
+      "meaningUp": "Perda, roubo, privação, abandono; outra leitura diz—esperança e perspectivas brilhantes.",
+      "meaningReversed": "Arrogância, altivez, impotência.",
+      "description": "Uma grande estrela radiante de oito raios, rodeada de sete estrelas menores. A figura feminina no primeiro plano está completamente nua. Ela verte a Água da Vida de dois grandes jarros, irrigando mar e terra. A estrela é a estrela flamejante, que aparece na simbologia maçônica."
+    },
+    "a18": {
+      "name": "A Lua",
+      "meaningUp": "Inimigos ocultos, perigo, calúnia, obscuridade, terror, engano, forças ocultas, erro.",
+      "meaningReversed": "Instabilidade, inconstância, silêncio, graus menores de engano e erro.",
+      "description": "A lua cresce do lado da misericórdia. A carta representa a vida da imaginação à parte da vida do espírito. O caminho entre as torres é a saída para o desconhecido. O cão e o lobo são os medos do espírito natural na presença desse lugar de saída."
+    },
+    "a19": {
+      "name": "O Sol",
+      "meaningUp": "Felicidade material, casamento afortunado, contentamento.",
+      "meaningReversed": "A mesma coisa em um sentido menor.",
+      "description": "A criança nua montada em um cavalo branco e exibindo uma bandeira vermelha é o destino do Oriente Sobrenatural e a grande e santa luz que vai diante da procissão sem fim da humanidade. O sol é aquele da consciência na mente—direto como a antítese da luz refletida."
+    },
+    "a20": {
+      "name": "O Julgamento",
+      "meaningUp": "Mudança de posição, renovação, resultado. Outra conta especifica perda total por processo.",
+      "meaningReversed": "Fraqueza, pusilanimidade, simplicidade; também deliberação, decisão, sentença.",
+      "description": "O grande anjo está rodeado de nuvens, mas ele sopra sua trombeta banie, e a cruz é exibida na bandeira. Os mortos se erguem de suas tumbas. É a carta que registra o cumprimento da grande obra de transformação em resposta à convocação do Sobrenatural."
+    },
+    "a21": {
+      "name": "O Mundo",
+      "meaningUp": "Sucesso assegurado, recompensa, viagem, estrada, emigração, voo, mudança de lugar.",
+      "meaningReversed": "Inércia, fixidez, estagnação, permanência.",
+      "description": "Ele representa a perfeição e o fim do Cosmos, o segredo que está nele, o êxtase do universo quando ele se compreende em Deus. Ele é também o estado da alma na consciência da Visão Divina, refletida da mente auto-consciente."
+    },
+    "a22": {
+      "name": "O Louco",
+      "meaningUp": "Loucura, mania, extravagância, intoxicação, delírio, frenesi, revelação.",
+      "meaningReversed": "Negligência, ausência, distribuição, negligência, apatia, nulidade, vaidade.",
+      "description": "Com um passo leve, como se a terra e suas amarras tivessem pouco poder para restringi-lo, um jovem homem em vestimentas magníficas para no bordo de um precipício entre as grandes alturas do mundo. Seu ato de caminhar ávido ainda é indicado, embora ele esteja estacionário no momento dado. Ele é um príncipe do mundo outro sobre suas viagens através dele."
+    },
+    "b01": {
+      "name": "Ás de Paus",
+      "meaningUp": "Criação, invenção, empresa, os poderes que resultam; princípio, começo, fonte; nascimento, família, origem.",
+      "meaningReversed": "Queda, decadência, ruína, perdição, perecer; também uma alegria um tanto nublada.",
+      "description": "Uma mão saindo de uma nuvem agarra um pau robusto ou maça."
+    },
+    "b02": {
+      "name": "Dois de Paus",
+      "meaningUp": "Riquezas, fortuna, magnificência; de outro lado, sofrimento físico, doença, tristeza, mortificação.",
+      "meaningReversed": "Surpresa, maravilha, encantamento, emoção, perturbação, medo.",
+      "description": "Um homem grande olha de um telhado ameado sobre mar e costa; ele segura um globo em sua mão direita, enquanto um pau em sua mão esquerda repousa no ameamento."
+    },
+    "b03": {
+      "name": "Três de Paus",
+      "meaningUp": "Força estabelecida, empresa, esforço, comércio, descoberta; cooperação capaz em negócios.",
+      "meaningReversed": "O fim dos problemas, suspensão ou cessação de adversidade, labor e decepção.",
+      "description": "Uma pessoa calma, majestosa, as costas viradas, olhando de uma borda de penhasco navios passando sobre o mar. Três paus estão plantados no solo."
+    },
+    "b04": {
+      "name": "Quatro de Paus",
+      "meaningUp": "Vida rural, refúgio, uma espécie de festa doméstica de colheita, descanso, concórdia, harmonia, prosperidade, paz.",
+      "meaningReversed": "A significação permanece inalterada; prosperidade, aumento, felicidade, beleza, embelezamento.",
+      "description": "Dos quatro grandes paus plantados no primeiro plano há uma grande guirlanda suspensa; duas figuras femininas elevam buquês."
+    },
+    "b05": {
+      "name": "Cinco de Paus",
+      "meaningUp": "Imitação, combate simulado, competição strenuosa e luta da busca após riquezas e fortuna.",
+      "meaningReversed": "Litígio, disputas, engano, contradição.",
+      "description": "Uma tropa de jovens brandindo paus, como em esporte ou luta. É uma guerra mimética."
+    },
+    "b06": {
+      "name": "Seis de Paus",
+      "meaningUp": "Um vencedor triunfante; grandes notícias, expectativa coroada de seu próprio desejo, a coroa da esperança.",
+      "meaningReversed": "Inquietude, medo, como de um inimigo vitorioso à porta; traição, deslealdade.",
+      "description": "Um cavaleiro coroado carrega um pau ornado de uma coroa de louro; criados com paus estão a seu lado."
+    },
+    "b07": {
+      "name": "Sete de Paus",
+      "meaningUp": "Bravura, discussão, palavra estridente; em negócios—negociações, guerra de comércio, troca, competição. Uma carta de sucesso.",
+      "meaningReversed": "Perplexidade, embaraço, ansiedade. É também um aviso contra a indecisão.",
+      "description": "Um jovem homem em uma eminência rochosa brandindo um pau; seis outros paus são levantados para ele de baixo."
+    },
+    "b08": {
+      "name": "Oito de Paus",
+      "meaningUp": "Atividade em empreendimentos, rapidez, como aquela de um mensageiro expresso; grande pressa, grande esperança, velocidade para um fim.",
+      "meaningReversed": "Flechas de ciúme, disputa interna, picadas de consciência, querelas; disputas domésticas.",
+      "description": "Um voo de paus através de uma campanha aberta; mas eles se dirigem ao termo de seu curso."
+    },
+    "b09": {
+      "name": "Nove de Paus",
+      "meaningUp": "Força em oposição. Se atacado, a pessoa encontrará um assalto com ousadia. Com isso, atraso, suspensão, adiamento.",
+      "meaningReversed": "Obstáculos, adversidade, calamidade.",
+      "description": "A figura se apoia em seu pau e tem um olhar expectante, como esperando um inimigo. Atrás estão oito outros paus—erguidos, em disposição ordenada."
+    },
+    "b10": {
+      "name": "Dez de Paus",
+      "meaningUp": "Opressão, fortuna, ganho, todo tipo de sucesso, e então é a opressão dessas coisas. Também aparência falsa, disfarce, perfídia.",
+      "meaningReversed": "Contrariedades, dificuldades, intrigas, e suas analogias.",
+      "description": "Um homem oprimido pelo peso dos dez paus que ele carrega."
+    },
+    "b11": {
+      "name": "Valete de Paus",
+      "meaningUp": "Jovem homem escuro, fiel, um amante, um enviado, um carteiro. Inteligência familiar.",
+      "meaningReversed": "Anedotas, anúncios, más notícias. Também indecisão e instabilidade.",
+      "description": "Um jovem homem se põe no ato de proclamação. Ele é desconhecido mas fiel, e suas notícias são estranhas."
+    },
+    "b12": {
+      "name": "Cavaleiro de Paus",
+      "meaningUp": "Partida, ausência, voo, emigração. Um jovem homem escuro, amigável. Mudança de residência.",
+      "meaningReversed": "Ruptura, divisão, interrupção, discórdia.",
+      "description": "Ele é mostrado como em uma viagem, armado com um pau curto. O movimento do cavalo sugere o humor precipitado."
+    },
+    "b13": {
+      "name": "Rainha de Paus",
+      "meaningUp": "Mulher escura, rural, amigável, casta, amorosa, honrada. Também amor de dinheiro, sucesso em negócios.",
+      "meaningReversed": "Boa, econômica, obrigatória, serviçal. Também oposição, ciúme, mesmo engano e infidelidade.",
+      "description": "Os Paus nesta suíte são sempre em folha, pois é uma suíte de vida e animação. A personalidade da Rainha é magnética."
+    },
+    "b14": {
+      "name": "Rei de Paus",
+      "meaningUp": "Homem escuro, amigável, rural, geralmente casado, honesto e consciencioso. Pode significar herança inesperada.",
+      "meaningReversed": "Bom, mas severo; austero, contudo tolerante.",
+      "description": "O Rei eleva um pau florido. Ele se conecta com o símbolo do leão, blasonado nas costas de seu trono."
+    },
+    "c01": {
+      "name": "Ás de Copas",
+      "meaningUp": "Casa do verdadeiro coração, alegria, contentamento, lar, comida, abundância, fertilidade; Mesa Sagrada, felicidade.",
+      "meaningReversed": "Casa do falso coração, mutação, instabilidade, revolução.",
+      "description": "A mão sai da nuvem, segurando a copa de onde quatro riachos fluem; uma pomba desce para colocar a Hóstia na Copa."
+    },
+    "c02": {
+      "name": "Dois de Copas",
+      "meaningUp": "Amor, paixão, amizade, afinidade, união, concórdia, simpatia, a inter-relação dos sexos.",
+      "meaningReversed": "Luxúria, ganância, ciúme, desejo, desejo.",
+      "description": "Um jovem homem e uma jovem moça se brindam um ao outro, e acima de suas copas surge o Caduceu de Hermes, com uma cabeça de leão."
+    },
+    "c03": {
+      "name": "Três de Copas",
+      "meaningUp": "A conclusão de toda matéria em abundância, perfeição e alegria; feliz resultado, vitória, realização, alívio, cura.",
+      "meaningReversed": "Expedição, expedição, realização, fim. Também excesso em prazer físico.",
+      "description": "Moças em um jardim-terra com copas elevadas, como se brindando uma à outra."
+    },
+    "c04": {
+      "name": "Quatro de Copas",
+      "meaningUp": "Fadiga, desgosto, aversão, vexações imaginárias, como se o vinho deste mundo tivesse causado a saciedade apenas.",
+      "meaningReversed": "Novidade, presságio, nova instrução, novas relações.",
+      "description": "Um jovem homem está sentado sob uma árvore e contempla três copas; um braço saindo de uma nuvem lhe oferece outra copa."
+    },
+    "c05": {
+      "name": "Cinco de Copas",
+      "meaningUp": "Perda, mas algo permanece em sobressalente; herança, patrimônio, transmissão, mas não correspondendo às expectativas.",
+      "meaningReversed": "Novas, alianças, afinidade, consanguinidade, ascendência, retorno, projetos falsos.",
+      "description": "Uma figura escura, encapuzada, olhando de lado para três copas derrubadas; duas outras se mantêm de pé atrás dela; uma ponte conduz a um pequeno castelo."
+    },
+    "c06": {
+      "name": "Seis de Copas",
+      "meaningUp": "Uma carta do passado e das memórias, olhando para trás na infância; felicidade, prazer do passado.",
+      "meaningReversed": "O futuro, renovação, o que virá a passar presente agora.",
+      "description": "Crianças em um velho jardim, suas copas cheias de flores."
+    },
+    "c07": {
+      "name": "Sete de Copas",
+      "meaningUp": "Favores feéricos, imagens de reflexão, sentimento, imaginação, coisas vistas no vidro da contemplação.",
+      "meaningReversed": "Desejo, vontade, determinação, projeto.",
+      "description": "Cálices estranhos de visão; as imagens são mais particularmente aquelas do espírito fantástico."
+    },
+    "c08": {
+      "name": "Oito de Copas",
+      "meaningUp": "O declínio de uma matéria, ou que uma matéria pensada importante é realmente de leve consequência.",
+      "meaningReversed": "Grande alegria, felicidade, festim.",
+      "description": "Um homem de aspecto dejetado abandona as copas de sua felicidade, empresa, ou preocupação precedente."
+    },
+    "c09": {
+      "name": "Nove de Copas",
+      "meaningUp": "Concórdia, contentamento, bem-estar físico; vitória, sucesso, vantagem; satisfação.",
+      "meaningReversed": "Verdade, lealdade, liberdade; mas também erros, imperfeições.",
+      "description": "Uma pessoa boa festejou a coração alegria; abundante refrigério de vinho está no balcão arqueado atrás dele."
+    },
+    "c10": {
+      "name": "Dez de Copas",
+      "meaningUp": "Contentamento, descanso do coração inteiro; perfeição do amor e amizade humana.",
+      "meaningReversed": "Descanso do falso coração, indignação, violência.",
+      "description": "Aparição de Copas em um arco-íris; é contemplado em admiração e êxtase por um homem e uma mulher abaixo, aparentemente marido e mulher."
+    },
+    "c11": {
+      "name": "Valete de Copas",
+      "meaningUp": "Jovem homem bonito, um empurrado a servir; jovem estudioso; notícias, mensagem; aplicação, reflexão, meditação.",
+      "meaningReversed": "Gosto, inclinação, apego, sedução, engano, artifício.",
+      "description": "Um pajem bonito, agradável, um tanto efeminado contempla um peixe elevando-se de uma copa para olhá-lo."
+    },
+    "c12": {
+      "name": "Cavaleiro de Copas",
+      "meaningUp": "Chegada, aproximação—às vezes aquela de um mensageiro; avanços, proposta, convite, incitação.",
+      "meaningReversed": "Engano, artifício, sutileza, fraude, duplicidade, fraude.",
+      "description": "Gracioso, mas não guerreiro; cavalgando tranquilamente, portando um elmo alado, referindo-se a graças mais elevadas da imaginação."
+    },
+    "c13": {
+      "name": "Rainha de Copas",
+      "meaningUp": "Boa mulher, mulher leal que fará serviço; inteligência amorosa e o dom de visão.",
+      "meaningReversed": "Mulher distinta mas não confiável; mulher perversa; vício, desonra.",
+      "description": "Linda, bela, sonhadora—como alguém que vê visões em uma copa. Ela vê, mas ela também age."
+    },
+    "c14": {
+      "name": "Rei de Copas",
+      "meaningUp": "Homem bonito, homem de negócios, lei, ou divindade; responsável, disposto a obrigar; equidade, arte e ciência.",
+      "meaningReversed": "Desonesto, jogo duplo homem; astúcia, exação, injustiça, vício, escândalo.",
+      "description": "Ele segura um cetro em sua mão esquerda e uma grande copa em sua direita; seu trono é posto sobre o mar."
+    },
+    "d01": {
+      "name": "Ás de Espadas",
+      "meaningUp": "Triunfo, o grau excessivo em tudo, conquista, triunfo de força. Uma carta de grande força.",
+      "meaningReversed": "A mesma, mas os resultados são desastrosos; outra conta diz—perda, aflição, fúria, violência.",
+      "description": "Uma mão sai de uma nuvem, segurando uma espada, cuja ponta é rodeada de uma coroa."
+    },
+    "d02": {
+      "name": "Dois de Espadas",
+      "meaningUp": "Conformidade e o equilíbrio que sugere, coragem, amizade, concórdia em um estado de armas.",
+      "meaningReversed": "Impostura, falsidade, duplicidade, deslealdade.",
+      "description": "Uma figura feminina encapuzada equilibra duas espadas sobre seus ombros."
+    },
+    "d03": {
+      "name": "Três de Espadas",
+      "meaningUp": "Supressão, ausência, atraso, divisão, ruptura, dispersão; também um encontro com alguém que o Consultante comprometeu.",
+      "meaningReversed": "Alienação mental, erro, perda, distração, desordem, confusão.",
+      "description": "Três espadas perfurando um coração; nuvem e chuva atrás."
+    },
+    "d04": {
+      "name": "Quatro de Espadas",
+      "meaningUp": "Vigilância, retiro, solidão, descanso do eremita, exílio, tumba e caixão.",
+      "meaningReversed": "Administração sábia, circunspecção, economia, avareza, precaução, testamento.",
+      "description": "A efigie de um cavaleiro na atitude de oração, de comprimento sobre sua tumba."
+    },
+    "d05": {
+      "name": "Cinco de Espadas",
+      "meaningUp": "Degradação, destruição, revogação, infâmia, desonra, perda.",
+      "meaningReversed": "A mesma; enterro e funerais.",
+      "description": "Um homem desdenhoso olha depois de duas figuras se retirando. Suas espadas jazem no solo. Ele carrega duas outras em seu ombro esquerdo."
+    },
+    "d06": {
+      "name": "Seis de Espadas",
+      "meaningUp": "Viagem por água, estrada, caminho, enviado, comissário, expediente.",
+      "meaningReversed": "Declaração, confissão, publicidade; uma conta diz—Perda.",
+      "description": "Um barqueiro transportando passageiros em seu barco para a margem mais distante."
+    },
+    "d07": {
+      "name": "Sete de Espadas",
+      "meaningUp": "Desenho, tentativa, desejo, esperança, confiança; também altercação, um plano que pode falhar, aborrecimento.",
+      "meaningReversed": "Bom conselho, conselho, instrução, calúnia, mexerico.",
+      "description": "Um homem no ato de carregar longe cinco espadas rapidamente; as duas outras permanecem fixadas no solo."
+    },
+    "d08": {
+      "name": "Oito de Espadas",
+      "meaningUp": "Más notícias, dor violenta, crise, censura, poder em entraves, conflito, calúnia; doença.",
+      "meaningReversed": "Inquietude, dificuldade, oposição, acidente, traição; também fatalidade, trabalho duro.",
+      "description": "Uma mulher, ligada e encapuzada, com as espadas da carta ao redor dela."
+    },
+    "d09": {
+      "name": "Nove de Espadas",
+      "meaningUp": "Morte, fracasso, aborto, atraso, engano, decepção, desespero.",
+      "meaningReversed": "Prisão, suspeita, dúvida, medo razoável, vergonha.",
+      "description": "Uma assentada em seu canapé em lamentação, com as espadas sobre ela."
+    },
+    "d10": {
+      "name": "Dez de Espadas",
+      "meaningUp": "Dor, aflição, lágrimas, tristeza, desolação. Não é especificamente uma carta de morte violenta.",
+      "meaningReversed": "Vantagem, lucro, sucesso, favor, mas nenhum deles é permanente.",
+      "description": "Uma figura prostrada, perfurada por todas as espadas pertencentes à carta."
+    },
+    "d11": {
+      "name": "Valete de Espadas",
+      "meaningUp": "Autoridade, supervisão, serviço secreto, vigilância, espionagem, exame.",
+      "meaningReversed": "O lado mais mau dessas qualidades; também doença é característica.",
+      "description": "Uma figura ágil, ativa segura uma espada direita nas duas mãos, enquanto agindo de marcha rápida."
+    },
+    "d12": {
+      "name": "Cavaleiro de Espadas",
+      "meaningUp": "Habilidade, bravura, capacidade, defesa, destreza, inimizade, cólera, guerra, destruição, oposição, resistência, ruína.",
+      "meaningReversed": "Imprudência, incapacidade, extravagância.",
+      "description": "Ele cavalga em curso pleno, como dispersando seus inimigos."
+    },
+    "d13": {
+      "name": "Rainha de Espadas",
+      "meaningUp": "Viúva, tristeza feminina e embaraço, ausência, esterilidade, luto, privação, separação.",
+      "meaningReversed": "Malícia, bigotismo, artifício, pudicícia, baixeza, engano.",
+      "description": "Sua mão direita eleva a arma verticalmente e a empunhadura repousa em um braço de sua cadeira real."
+    },
+    "d14": {
+      "name": "Rei de Espadas",
+      "meaningUp": "Juiz, autoridade, comando, inteligência militante; um homem de lei, exército ou outro serviço.",
+      "meaningReversed": "Crueldade, perversidade, barbárie, perfídia, intenção má.",
+      "description": "Ele se assenta em julgamento, segurando o insígnio não desembainhado de sua suíte."
+    },
+    "e01": {
+      "name": "Ás de Ouros",
+      "meaningUp": "Contentamento perfeito, felicidade, êxtase; inteligência rápida; ouro.",
+      "meaningReversed": "O lado mau da riqueza, má inteligência; também grandes riquezas.",
+      "description": "Uma mão saindo de uma nuvem tende um pentáculo."
+    },
+    "e02": {
+      "name": "Dois de Ouros",
+      "meaningUp": "Alegria, recreação; notícias, mensagens por escrito, obstáculos, agitação, perturbação, emaranhamento.",
+      "meaningReversed": "Alegria forçada, prazer simulado, sentido literal, escrita, composição, cartas de troca.",
+      "description": "Um jovem homem, no ato de dançar, tem um pentáculo em cada mão, conectados por um cordão sem fim."
+    },
+    "e03": {
+      "name": "Três de Ouros",
+      "meaningUp": "Comércio, trabalho qualificado; aristocracia, renome, glória.",
+      "meaningReversed": "Mediocridade no trabalho e de outra forma, puerilidade, fraqueza.",
+      "description": "Um escultor a seu trabalho em um monastério."
+    },
+    "e04": {
+      "name": "Quatro de Ouros",
+      "meaningUp": "Segurança de possessões, agarrando-se ao que se tem, doação, legado, herança.",
+      "meaningReversed": "Suspense, atraso, oposição.",
+      "description": "Uma figura coroada, tendo um pentáculo em sua coroa, aperta outro com mãos e braços; dois pentáculos estão sob seus pés."
+    },
+    "e05": {
+      "name": "Cinco de Ouros",
+      "meaningUp": "Perturbação material, despojamento; ruína, amor discordante, desordem, caos.",
+      "meaningReversed": "Desordem, caos, ruína, discórdia, prodigalidade.",
+      "description": "Dois mendigos em uma tempestade de neve passam uma soleira iluminada."
+    },
+    "e06": {
+      "name": "Seis de Ouros",
+      "meaningUp": "Prosperidade presente, generosidade, dons; também atenção, vigilância; agora é o tempo aceito.",
+      "meaningReversed": "Desejo, ganância, inveja, ciúme, ilusão.",
+      "description": "Uma pessoa na guisa de um mercador pesa dinheiro em um par de balanças e o distribui aos necessitados."
+    },
+    "e07": {
+      "name": "Sete de Ouros",
+      "meaningUp": "Dinheiro, negócios, troca; altercação, querelas; inocência, engenhosidade, purgação.",
+      "meaningReversed": "Causa de ansiedade sobre dinheiro; também um indicador para pôr dinheiro a usura.",
+      "description": "Um jovem homem, apoiando-se em seu pau, olha intensamente sete pentáculos presos a uma touceira de verdura em sua direita."
+    },
+    "e08": {
+      "name": "Oito de Ouros",
+      "meaningUp": "Trabalho, emprego, comissão, ofício, habilidade em ofício e negócios.",
+      "meaningReversed": "Ambição vazia, vaidade, ganância, exação, usura. Também uma arma letal.",
+      "description": "Um artista em pedra a seu trabalho, que ele expõe sob a forma de troféus."
+    },
+    "e09": {
+      "name": "Nove de Ouros",
+      "meaningUp": "Prudência, segurança, sucesso, realização, certeza, discernimento.",
+      "meaningReversed": "Astúcia, engano, projeto vazio, má fé.",
+      "description": "Uma mulher, com um pássaro em seu pulso, está no meio de uma grande abundância de vinhas no jardim de uma casa senhorial."
+    },
+    "e10": {
+      "name": "Dez de Ouros",
+      "meaningUp": "Ganho, riquezas; assuntos familiares, arquivos, extração, a morada de uma família.",
+      "meaningReversed": "Sorte, fatalidade, perda, roubo, jogos de azar.",
+      "description": "Um homem e uma mulher sob um arco que dá entrada a uma casa e um domínio."
+    },
+    "e11": {
+      "name": "Valete de Ouros",
+      "meaningUp": "Aplicação, estudo, erudição, reflexão; também notícias, mensagens e seu portador.",
+      "meaningReversed": "Prodigalidade, dissipação, liberalidade, luxo; notícias desfavoráveis.",
+      "description": "Uma figura juvenil, olhando intensamente o pentáculo que paira sobre suas mãos elevadas."
+    },
+    "e12": {
+      "name": "Cavaleiro de Ouros",
+      "meaningUp": "Utilidade, serviabilidade, interesse, responsabilidade, retidão.",
+      "meaningReversed": "Inércia, ociosidade, descanso, estagnação; também desencorajamento, negligência.",
+      "description": "Ele cavalga um cavalo lento, endurante, pesado, ao qual seu próprio aspecto corresponde."
+    },
+    "e13": {
+      "name": "Rainha de Ouros",
+      "meaningUp": "Oportunidade, generosidade, magnificência, segurança, liberdade.",
+      "meaningReversed": "Mal, suspeita, suspense, medo, desconfiança.",
+      "description": "O rosto sugere grandeza de alma; ela tem a seriedade da inteligência; ela contempla seu símbolo."
+    },
+    "e14": {
+      "name": "Rei de Ouros",
+      "meaningUp": "Bravura, inteligência realizando, negócios e aptidão intelectual normal; também dons matemáticos.",
+      "meaningReversed": "Vício, fraqueza, feiura, perversidade, corrupção, perigo.",
+      "description": "A figura não chama descrição especial; o rosto é um tanto escuro, sugerindo também coragem, mas um tanto letárgico."
+    },
+    "z00": {
+      "name": "Carta Branca",
+      "meaningUp": "Uma carta de potencial infinito e mistério.",
+      "meaningReversed": "Incerteza, o desconhecido.",
+      "description": "Uma tela virgem aguardando seu destino."
+    },
+    "z01": {
+      "name": "Verso da Carta",
+      "meaningUp": "O oculto, o não revelado.",
+      "meaningReversed": "Segredos guardados, mistérios dissimulados.",
+      "description": "O verso ornado do baralho de tarô, ocultando o que está abaixo."
+    }
+  },
+  "actions": {
+    "shuffle": "Embaralhar",
+    "draw": "Tirar Carta",
+    "reset": "Reiniciar",
+    "flip": "Virar Carta"
+  },
+  "language": {
+    "select": "Selecionar Idioma",
+    "en": "Inglês",
+    "pt-BR": "Português (Brasil)",
+    "fr": "Francês"
+  },
+  "cardDetails": {
+    "description": "Descrição",
+    "upright": "À direita",
+    "reversed": "À esquerda",
+    "hide": "Ocultar detalhes",
+    "show": "Mostrar detalhes"
+  }
+}

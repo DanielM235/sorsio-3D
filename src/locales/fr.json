@@ -1,0 +1,534 @@
+{
+  "app": {
+    "title": "Tarot de Marseille",
+    "description": "Application éducative interactive pour le Tarot de Marseille",
+    "loading": "Chargement..."
+  },
+  "menu": {
+    "explore": "Explorer les Cartes",
+    "exploreDesc": "Découvrez les 78 cartes du Tarot de Marseille",
+    "simpleDraw": "Tirage Simple",
+    "simpleDrawDesc": "Tirez une carte et recevez son message",
+    "resources": "Ressources",
+    "resourcesDesc": "Liens externes et contenus additionnels",
+    "about": "À Propos",
+    "aboutDesc": "En savoir plus sur ce projet"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "back": "Retour",
+    "menu": "Menu",
+    "learn": "Apprendre",
+    "practice": "Pratiquer",
+    "about": "À propos"
+  },
+  "cards": {
+    "majorArcana": "Arcanes Majeurs",
+    "minorArcana": "Arcanes Mineurs",
+    "suits": {
+      "wands": "Bâtons",
+      "cups": "Coupes",
+      "swords": "Épées",
+      "coins": "Deniers"
+    },
+    "a01": {
+      "name": "Le Bateleur",
+      "meaningUp": "Habileté, diplomatie, adresse, subtilité ; maladie, douleur, perte, désastre, pièges des ennemis ; confiance en soi, volonté ; le Consultant, s'il est masculin.",
+      "meaningReversed": "Médecin, Mage, maladie mentale, disgrâce, inquiétude.",
+      "description": "Une figure juvénile dans la robe d'un magicien, ayant le visage du divin Apollon, avec un sourire de confiance et des yeux brillants. Au-dessus de sa tête se trouve le signe mystérieux de l'Esprit Saint, le signe de la vie, comme un cordon sans fin formant le chiffre 8 en position horizontale. Autour de sa taille se trouve une ceinture-serpent, le serpent semblant dévorer sa propre queue. Ceci est familier à beaucoup comme un symbole conventionnel d'éternité, mais ici il indique plus particulièrement l'éternité de l'atteinte dans l'esprit."
+    },
+    "a02": {
+      "name": "La Papesse",
+      "meaningUp": "Secrets, mystère, l'avenir encore non révélé ; la femme qui intéresse le Consultant, s'il est masculin ; le Consultant elle-même, si elle est féminine ; silence, ténacité ; mystère, sagesse, science.",
+      "meaningReversed": "Passion, ardeur morale ou physique, vanité, connaissance superficielle.",
+      "description": "Elle a le croissant lunaire à ses pieds, un diadème cornu sur sa tête, avec un globe au milieu, et une grande croix solaire sur sa poitrine. Le rouleau dans ses mains est inscrit avec le mot Tora, signifiant la Grande Loi, la Loi Secrète et le second sens du Mot. Elle est assise entre les piliers blanc et noir du Temple mystique, et le voile du Temple est derrière elle."
+    },
+    "a03": {
+      "name": "L'Impératrice",
+      "meaningUp": "Fructification, action, initiative, longueur des jours ; l'inconnu, clandestin ; aussi difficulté, doute, ignorance.",
+      "meaningReversed": "Lumière, vérité, le démêlage des affaires embrouillées, réjouissances publiques ; selon une autre lecture, vacillation.",
+      "description": "Une figure majestueuse, assise, ayant de riches vêtements et un aspect royal, comme une fille du ciel et de la terre. Son diadème est de douze étoiles, rassemblées en grappe. Le symbole de Vénus est sur le bouclier qui repose près d'elle. Un champ de blé mûrit devant elle, et au-delà il y a une chute d'eau."
+    },
+    "a04": {
+      "name": "L'Empereur",
+      "meaningUp": "Stabilité, pouvoir, protection, réalisation ; une grande personne ; aide, raison, conviction ; aussi autorité et volonté.",
+      "meaningReversed": "Bienveillance, compassion, crédit ; aussi confusion aux ennemis, obstruction, immaturité.",
+      "description": "Il a une forme de la Crux ansata pour son sceptre et un globe dans sa main gauche. Il est un monarque couronné—commandant, majestueux, assis sur un trône, dont les bras sont frontés par des têtes de bélier. Il est exécutif et réalisation, le pouvoir de ce monde, ici vêtu de ses plus hauts attributs naturels."
+    },
+    "a05": {
+      "name": "Le Pape",
+      "meaningUp": "Mariage, alliance, captivité, servitude ; par un autre compte, miséricorde et bonté ; inspiration ; l'homme vers lequel le Consultant a recours.",
+      "meaningReversed": "Société, bonne compréhension, concorde, sur-bonté, faiblesse.",
+      "description": "Il porte la triple couronne et est assis entre deux piliers. Dans sa main gauche il tient un sceptre se terminant dans la triple croix, et avec sa main droite il donne le signe ecclésiastique de l'ésotérisme. À ses pieds sont les clés croisées, et deux ministres sacerdotaux en aubes s'agenouillent devant lui."
+    },
+    "a06": {
+      "name": "Les Amoureux",
+      "meaningUp": "Attraction, amour, beauté, épreuves surmontées.",
+      "meaningReversed": "Échec, desseins insensés. Un autre compte parle de mariage frustré et contrariétés de toutes sortes.",
+      "description": "Le soleil brille au zénith, et en dessous une grande figure ailée avec les bras étendus, déversant des influences. Au premier plan sont deux figures humaines, mâle et femelle, dévoilées l'une devant l'autre, comme Adam et Eve lorsqu'ils ont occupé pour la première fois le paradis du corps terrestre."
+    },
+    "a07": {
+      "name": "Le Chariot",
+      "meaningUp": "Secours, providence ; aussi guerre, triomphe, présomption, vengeance, trouble.",
+      "meaningReversed": "Émeute, querelle, dispute, litige, défaite.",
+      "description": "Une figure droite et princière portant une épée tirée. Sur les épaules du héros victorieux sont l'Urim et le Thummim. Il a conduit la captivité captive ; il est conquête sur tous les plans—dans l'esprit, dans la science, dans le progrès, dans certaines épreuves d'initiation. Deux sphinx tirent son chariot."
+    },
+    "a08": {
+      "name": "La Force",
+      "meaningUp": "Pouvoir, énergie, action, courage, magnanimité ; aussi succès complet et honneurs.",
+      "meaningReversed": "Despotisme, abus de pouvoir, faiblesse, discorde, parfois même disgrâce.",
+      "description": "Une femme, sur la tête de laquelle plane le même symbole de vie que nous avons vu dans la carte du Bateleur, ferme les mâchoires d'un lion. Sa bienfaisante force a déjà subjugué le lion, qui est maintenant conduit par une chaîne de fleurs."
+    },
+    "a09": {
+      "name": "L'Ermite",
+      "meaningUp": "Prudence, circonspection ; aussi et surtout trahison, dissimulation, rouerie, corruption.",
+      "meaningReversed": "Dissimulation, déguisement, politique, peur, prudence déraisonnée.",
+      "description": "La figure est vue tenant son fanal sur une éminence. C'est une étoile qui brille dans la lanterne. L'Ermite n'est pas un homme sage en quête de vérité et de justice ; son fanal intime que 'là où je suis, vous aussi pouvez être.'"
+    },
+    "a10": {
+      "name": "La Roue de Fortune",
+      "meaningUp": "Destinée, fortune, succès, élévation, chance, félicité.",
+      "meaningReversed": "Augmentation, abondance, superflu.",
+      "description": "Les quatre Créatures Vivantes d'Ézéchiel occupent les angles de la carte, et la roue elle-même suit les indications de Lévi en ce qui concerne la vision d'Ézéchiel. Le Sphinx est l'équilibre en cela. La translittération de Taro comme Rota est inscrite sur la roue."
+    },
+    "a11": {
+      "name": "La Justice",
+      "meaningUp": "Équité, droiture, probité, exécutif ; triomphe du côté méritant en droit.",
+      "meaningReversed": "Droit dans tous ses départements, complications juridiques, bigoterie, partialité, sévérité excessive.",
+      "description": "La figure est assise entre piliers, comme la Papesse. Le principe moral qui traite chacun selon ses œuvres diffère dans son essence du droit spirituel impliqué dans l'idée d'élection."
+    },
+    "a12": {
+      "name": "Le Pendu",
+      "meaningUp": "Sagesse, circonspection, discernement, épreuves, sacrifice, intuition, divination, prophétie.",
+      "meaningReversed": "Égoïsme, la foule, corps politique.",
+      "description": "Le gibet duquel il est suspendu forme une croix Tau, tandis que la figure—de la position des jambes—forme une croix fylfot. Il y a une auréole autour de la tête du martyr apparent. L'arbre du sacrifice est du bois vivant, avec des feuilles dessus ; le visage exprime un profond envoûtement, pas de la souffrance."
+    },
+    "a13": {
+      "name": "La Mort",
+      "meaningUp": "Fin, mortalité, destruction, corruption ; aussi, pour un homme, la perte d'un bienfaiteur ; pour une femme, beaucoup de contrariétés ; pour une jeune fille, échec des projets de mariage.",
+      "meaningReversed": "Inertie, sommeil, léthargie, pétrification, somnambulisme ; espoir détruit.",
+      "description": "Le mystérieux cavalier se déplace lentement, portant une bannière noire blasonnée avec la Rose Mystique, qui signifie la vie. Entre deux piliers au bord de l'horizon brille le soleil de l'immortalité. Le cavalier ne porte pas d'arme visible, mais roi et enfant et jeune fille tombent devant lui."
+    },
+    "a14": {
+      "name": "Tempérance",
+      "meaningUp": "Économie, modération, frugalité, gestion, accommodement.",
+      "meaningReversed": "Choses liées aux églises, religions, sectes, au clergé ; aussi désunion, combinaisons défavorables, intérêts concurrents.",
+      "description": "Un ange ailé, avec le signe du soleil sur son front et sur sa poitrine le carré et le triangle du septénaire. La figure verse les essences de vie de calice en calice. Elle a un pied sur la terre et un sur les eaux, illustrant ainsi la nature des essences."
+    },
+    "a15": {
+      "name": "Le Diable",
+      "meaningUp": "Ravage, violence, véhémence, efforts extraordinaires, force, fatalité ; ce qui est prédestiné mais n'est pas pour cette raison mauvais.",
+      "meaningReversed": "Fatalité mauvaise, faiblesse, mesquinerie, cécité.",
+      "description": "Le Bouc Cornu de Mendès, avec des ailes comme celles d'une chauve-souris, est debout sur un autel. Au creux de l'estomac il y a le signe de Mercure. Deux figures, mâle et femelle, sont enchaînées à l'autel. Celles-ci sont analogues à celles de la carte des Amoureux, comme si Adam et Eve après la Chute."
+    },
+    "a16": {
+      "name": "La Maison Dieu",
+      "meaningUp": "Misère, détresse, indigence, adversité, calamité, disgrâce, tromperie, ruine. C'est une carte en particulier de catastrophe imprévue.",
+      "meaningReversed": "La même chose dans un degré moindre ; aussi oppression, emprisonnement, tyrannie.",
+      "description": "C'est la ruine de la Maison de Vie, quand le mal a prévalu en elle, et au-dessus de tout c'est le déchirement d'une Maison de Doctrine. Elle illustre la vieille vérité que 'sauf si le Seigneur bâtit la maison, ils travaillent en vain qui la bâtissent.'"
+    },
+    "a17": {
+      "name": "L'Étoile",
+      "meaningUp": "Perte, vol, privation, abandon ; une autre lecture dit—espoir et perspectives brillantes.",
+      "meaningReversed": "Arrogance, hauteur, impuissance.",
+      "description": "Une grande étoile radiante de huit rayons, entourée de sept étoiles plus petites. La figure féminine au premier plan est entièrement nue. Elle verse l'Eau de Vie de deux grands brocs, irriguant mer et terre. L'étoile est l'étoile flamboyante, qui apparaît dans la symbolique maçonnique."
+    },
+    "a18": {
+      "name": "La Lune",
+      "meaningUp": "Ennemis cachés, danger, calomnie, obscurité, terreur, tromperie, forces occultes, erreur.",
+      "meaningReversed": "Instabilité, inconstance, silence, degrés moindres de tromperie et d'erreur.",
+      "description": "La lune croît du côté de la miséricorde. La carte représente la vie de l'imagination à part de la vie de l'esprit. Le chemin entre les tours est l'issue vers l'inconnu. Le chien et le loup sont les peurs de l'esprit naturel en présence de ce lieu d'issue."
+    },
+    "a19": {
+      "name": "Le Soleil",
+      "meaningUp": "Bonheur matériel, mariage fortuné, contentement.",
+      "meaningReversed": "La même chose dans un sens moindre.",
+      "description": "L'enfant nu monté sur un cheval blanc et affichant une bannière rouge est le destin de l'Orient Surnaturel et la grande et sainte lumière qui va devant la procession sans fin de l'humanité. Le soleil est celui de la conscience dans l'esprit—direct comme l'antithèse de la lumière réfléchie."
+    },
+    "a20": {
+      "name": "Le Jugement",
+      "meaningUp": "Changement de position, renouvellement, résultat. Un autre compte spécifie perte totale par procès.",
+      "meaningReversed": "Faiblesse, pusillanimité, simplicité ; aussi délibération, décision, sentence.",
+      "description": "Le grand ange est entouré de nuages, mais il souffle sa trompette bannie, et la croix est affichée sur la bannière. Les morts se relèvent de leurs tombes. C'est la carte qui enregistre l'accomplissement du grand œuvre de transformation en réponse à la sommation du Surnaturel."
+    },
+    "a21": {
+      "name": "Le Monde",
+      "meaningUp": "Succès assuré, récompense, voyage, route, émigration, vol, changement de lieu.",
+      "meaningReversed": "Inertie, fixité, stagnation, permanence.",
+      "description": "Il représente la perfection et la fin du Cosmos, le secret qui est en lui, l'extase de l'univers quand il se comprend lui-même en Dieu. Il est aussi l'état de l'âme dans la conscience de la Vision Divine, réfléchie de l'esprit auto-connaissant."
+    },
+    "a22": {
+      "name": "Le Mat",
+      "meaningUp": "Folie, manie, extravagance, intoxication, délire, frénésie, révélation.",
+      "meaningReversed": "Négligence, absence, distribution, négligence, apathie, nullité, vanité.",
+      "description": "Avec un pas léger, comme si la terre et ses entraves avaient peu de pouvoir pour le restreindre, un jeune homme en vêtements magnifiques s'arrête au bord d'un précipice parmi les grandes hauteurs du monde. Son acte de marche avide est encore indiqué, bien qu'il soit stationnaire au moment donné. Il est un prince du monde autre sur ses voyages à travers celui-ci."
+    },
+    "b01": {
+      "name": "As de Bâtons",
+      "meaningUp": "Création, invention, entreprise, les pouvoirs qui en résultent ; principe, commencement, source ; naissance, famille, origine.",
+      "meaningReversed": "Chute, décadence, ruine, perdition, périr ; aussi une joie quelque peu nuageuse.",
+      "description": "Une main sortant d'un nuage saisit un bâton robuste ou une massue."
+    },
+    "b02": {
+      "name": "Deux de Bâtons",
+      "meaningUp": "Richesses, fortune, magnificence ; d'un autre côté, souffrance physique, maladie, chagrin, tristesse, mortification.",
+      "meaningReversed": "Surprise, merveille, enchantement, émotion, trouble, peur.",
+      "description": "Un homme grand regarde d'un toit crénelé sur mer et rivage ; il tient un globe dans sa main droite, tandis qu'un bâton dans sa main gauche repose sur le crénelage."
+    },
+    "b03": {
+      "name": "Trois de Bâtons",
+      "meaningUp": "Force établie, entreprise, effort, commerce, découverte ; coopération capable en affaires.",
+      "meaningReversed": "La fin des ennuis, suspension ou cessation d'adversité, labeur et déception.",
+      "description": "Une personne calme, majestueuse, le dos tourné, regardant d'un bord de falaise des navires passant sur la mer. Trois bâtons sont plantés dans le sol."
+    },
+    "b04": {
+      "name": "Quatre de Bâtons",
+      "meaningUp": "Vie de campagne, havre de refuge, une espèce de fête domestique de moisson, repos, concorde, harmonie, prospérité, paix.",
+      "meaningReversed": "La signification reste inchangée ; prospérité, augmentation, félicité, beauté, embellissement.",
+      "description": "Des quatre grands bâtons plantés au premier plan il y a une grande guirlande suspendue ; deux figures féminines élèvent des bouquets."
+    },
+    "b05": {
+      "name": "Cinq de Bâtons",
+      "meaningUp": "Imitation, combat simulé, compétition strenueuse et lutte de la recherche après les richesses et la fortune.",
+      "meaningReversed": "Litige, disputes, tromperie, contradiction.",
+      "description": "Une troupe de jeunes gens brandissant des bâtons, comme en sport ou en lutte. C'est une guerre mimique."
+    },
+    "b06": {
+      "name": "Six de Bâtons",
+      "meaningUp": "Un vainqueur triomphant ; grandes nouvelles, attente couronnée de son propre désir, la couronne de l'espoir.",
+      "meaningReversed": "Inquiétude, peur, comme d'un ennemi victorieux à la porte ; trahison, déloyauté.",
+      "description": "Un cavalier couronné porte un bâton orné d'une couronne de laurier ; des valets avec des bâtons sont à son côté."
+    },
+    "b07": {
+      "name": "Sept de Bâtons",
+      "meaningUp": "Vaillance, discussion, parole stridente ; en affaires—négociations, guerre de commerce, troc, compétition. Une carte de succès.",
+      "meaningReversed": "Pérplexité, embarras, anxiété. C'est aussi une mise en garde contre l'indécision.",
+      "description": "Un jeune homme sur une éminence rocheuse brandissant un bâton ; six autres bâtons sont levés vers lui d'en bas."
+    },
+    "b08": {
+      "name": "Huit de Bâtons",
+      "meaningUp": "Activité dans les entreprises, rapidité, comme celle d'un messager express ; grande hâte, grande espérance, vitesse vers une fin.",
+      "meaningReversed": "Flèches de jalousie, dispute interne, piqûres de conscience, querelles ; disputes domestiques.",
+      "description": "Un vol de bâtons à travers une campagne ouverte ; mais ils se dirigent vers le terme de leur cours."
+    },
+    "b09": {
+      "name": "Neuf de Bâtons",
+      "meaningUp": "Force en opposition. Si attaqué, la personne rencontrera un assaut avec hardiesse. Avec cela, retard, suspension, ajournement.",
+      "meaningReversed": "Obstacles, adversité, calamité.",
+      "description": "La figure s'appuie sur son bâton et a un regard expectant, comme attendant un ennemi. Derrière sont huit autres bâtons—érigés, en disposition ordonnée."
+    },
+    "b10": {
+      "name": "Dix de Bâtons",
+      "meaningUp": "Oppression, fortune, gain, tout genre de succès, et puis c'est l'oppression de ces choses. Aussi apparence fausse, déguisement, perfidie.",
+      "meaningReversed": "Contrariétés, difficultés, intrigues, et leurs analogies.",
+      "description": "Un homme opprimé par le poids des dix bâtons qu'il porte."
+    },
+    "b11": {
+      "name": "Valet de Bâtons",
+      "meaningUp": "Jeune homme sombre, fidèle, un amant, un envoyé, un facteur. Intelligence familiale.",
+      "meaningReversed": "Anecdotes, annonces, mauvaises nouvelles. Aussi indécision et instabilité.",
+      "description": "Un jeune homme se tient dans l'acte de proclamation. Il est inconnu mais fidèle, et ses nouvelles sont étranges."
+    },
+    "b12": {
+      "name": "Chevalier de Bâtons",
+      "meaningUp": "Départ, absence, vol, émigration. Un jeune homme sombre, amical. Changement de résidence.",
+      "meaningReversed": "Rupture, division, interruption, discorde.",
+      "description": "Il est montré comme sur un voyage, armé d'un bâton court. Le mouvement du cheval suggère l'humeur précipitée."
+    },
+    "b13": {
+      "name": "Reine de Bâtons",
+      "meaningUp": "Femme sombre, campagnarde, amicale, chaste, aimante, honorable. Aussi amour de l'argent, succès en affaires.",
+      "meaningReversed": "Bonne, économique, obligeante, serviable. Aussi opposition, jalousie, même tromperie et infidélité.",
+      "description": "Les Bâtons dans cette suite sont toujours en feuille, car c'est une suite de vie et d'animation. La personnalité de la Reine est magnétique."
+    },
+    "b14": {
+      "name": "Roi de Bâtons",
+      "meaningUp": "Homme sombre, amical, campagnard, généralement marié, honnête et consciencieux. Peut signifier héritage inattendu.",
+      "meaningReversed": "Bon, mais sévère ; austère, pourtant tolérant.",
+      "description": "Le Roi élève un bâton fleuri. Il se connecte avec le symbole du lion, blasonné sur le dos de son trône."
+    },
+    "c01": {
+      "name": "As de Coupes",
+      "meaningUp": "Maison du vrai cœur, joie, contentement, demeure, nourriture, abondance, fertilité ; Table Sainte, félicité.",
+      "meaningReversed": "Maison du faux cœur, mutation, instabilité, révolution.",
+      "description": "La main sort du nuage, tenant la coupe d'où quatre ruisseaux coulent ; une colombe descend pour placer l'Hostie dans la Coupe."
+    },
+    "c02": {
+      "name": "Deux de Coupes",
+      "meaningUp": "Amour, passion, amitié, affinité, union, concorde, sympathie, l'interrelation des sexes.",
+      "meaningReversed": "Luxure, cupidité, jalousie, souhait, désir.",
+      "description": "Un jeune homme et une jeune fille se portent un toast l'un à l'autre, et au-dessus de leurs coupes s'élève le Caducée d'Hermès, avec une tête de lion."
+    },
+    "c03": {
+      "name": "Trois de Coupes",
+      "meaningUp": "La conclusion de toute matière en abondance, perfection et gaieté ; heureuse issue, victoire, accomplissement, soulagement, guérison.",
+      "meaningReversed": "Expédition, expédition, réalisation, fin. Aussi excès en plaisir physique.",
+      "description": "Des jeunes filles dans un jardin-terre avec des coupes élevées, comme se portant un toast l'une à l'autre."
+    },
+    "c04": {
+      "name": "Quatre de Coupes",
+      "meaningUp": "Lassitude, dégoût, aversion, vexations imaginaires, comme si le vin de ce monde avait causé la satiété seulement.",
+      "meaningReversed": "Nouveauté, présage, nouvelle instruction, nouvelles relations.",
+      "description": "Un jeune homme est assis sous un arbre et contemple trois coupes ; un bras sortant d'un nuage lui offre une autre coupe."
+    },
+    "c05": {
+      "name": "Cinq de Coupes",
+      "meaningUp": "Perte, mais quelque chose reste en surplus ; héritage, patrimoine, transmission, mais pas correspondant aux attentes.",
+      "meaningReversed": "Nouvelles, alliances, affinité, consanguinité, ascendance, retour, projets faux.",
+      "description": "Une figure sombre, encapuchonnée, regardant de côté à trois coupes renversées ; deux autres se tiennent droites derrière elle ; un pont conduit à un petit donjon."
+    },
+    "c06": {
+      "name": "Six de Coupes",
+      "meaningUp": "Une carte du passé et des souvenirs, regardant en arrière sur l'enfance ; bonheur, plaisir du passé.",
+      "meaningReversed": "Le futur, renouvellement, ce qui viendra à passer présentement.",
+      "description": "Des enfants dans un vieux jardin, leurs coupes remplies de fleurs."
+    },
+    "c07": {
+      "name": "Sept de Coupes",
+      "meaningUp": "Faveurs féeriques, images de réflexion, sentiment, imagination, choses vues dans le verre de la contemplation.",
+      "meaningReversed": "Désir, volonté, détermination, projet.",
+      "description": "Des calices étranges de vision ; les images sont plus particulièrement celles de l'esprit fantastique."
+    },
+    "c08": {
+      "name": "Huit de Coupes",
+      "meaningUp": "Le déclin d'une matière, ou qu'une matière pensée importante est vraiment de légère conséquence.",
+      "meaningReversed": "Grande joie, bonheur, festin.",
+      "description": "Un homme d'aspect déjeté abandonne les coupes de sa félicité, entreprise, ou préoccupation précédente."
+    },
+    "c09": {
+      "name": "Neuf de Coupes",
+      "meaningUp": "Concorde, contentement, bien-être physique ; victoire, succès, avantage ; satisfaction.",
+      "meaningReversed": "Vérité, loyauté, liberté ; mais aussi erreurs, imperfections.",
+      "description": "Une personne bonne a festoyé à cœur joie ; abondant rafraîchissement de vin est sur le comptoir arqué derrière lui."
+    },
+    "c10": {
+      "name": "Dix de Coupes",
+      "meaningUp": "Contentement, repos du cœur entier ; perfection de l'amour et de l'amitié humaine.",
+      "meaningReversed": "Repos du faux cœur, indignation, violence.",
+      "description": "Apparition de Coupes dans un arc-en-ciel ; c'est contemplé en émerveillement et extase par un homme et une femme en dessous, apparemment mari et femme."
+    },
+    "c11": {
+      "name": "Valet de Coupes",
+      "meaningUp": "Jeune homme beau, un poussé à rendre service ; jeune studieux ; nouvelles, message ; application, réflexion, méditation.",
+      "meaningReversed": "Goût, inclination, attachement, séduction, tromperie, artifice.",
+      "description": "Un page beau, plaisant, quelque peu efféminé contemple un poisson s'élevant d'une coupe pour le regarder."
+    },
+    "c12": {
+      "name": "Chevalier de Coupes",
+      "meaningUp": "Arrivée, approche—parfois celle d'un messager ; avances, proposition, invitation, incitation.",
+      "meaningReversed": "Tromperie, artifice, subtilité, escroquerie, duplicité, fraude.",
+      "description": "Gracieux, mais pas guerrier ; chevauchant tranquillement, portant un heaume ailé, se référant à des grâces plus élevées de l'imagination."
+    },
+    "c13": {
+      "name": "Reine de Coupes",
+      "meaningUp": "Bonne femme, femme loyale qui fera service ; intelligence aimante et le don de vision.",
+      "meaningReversed": "Femme distinguée mais pas à faire confiance ; femme perverse ; vice, déshonneur.",
+      "description": "Belle, belle, rêveuse—comme quelqu'un qui voit des visions dans une coupe. Elle voit, mais elle agit aussi."
+    },
+    "c14": {
+      "name": "Roi de Coupes",
+      "meaningUp": "Homme beau, homme d'affaires, loi, ou divinité ; responsable, disposé à obliger ; équité, art et science.",
+      "meaningReversed": "Déshonnête, double jeu homme ; rouerie, exaction, injustice, vice, scandale.",
+      "description": "Il tient un sceptre dans sa main gauche et une grande coupe dans sa droite ; son trône est posé sur la mer."
+    },
+    "d01": {
+      "name": "As d'Épées",
+      "meaningUp": "Triomphe, le degré excessif dans tout, conquête, triomphe de la force. Une carte de grande force.",
+      "meaningReversed": "La même, mais les résultats sont désastreux ; un autre compte dit—perte, affliction, fureur, violence.",
+      "description": "Une main sort d'un nuage, saisissant une épée, dont la pointe est entourée d'une couronne."
+    },
+    "d02": {
+      "name": "Deux d'Épées",
+      "meaningUp": "Conformité et l'équipoise qu'elle suggère, courage, amitié, concorde dans un état d'armes.",
+      "meaningReversed": "Imposture, fausseté, duplicité, déloyauté.",
+      "description": "Une figure féminine encapuchonnée équilibre deux épées sur ses épaules."
+    },
+    "d03": {
+      "name": "Trois d'Épées",
+      "meaningUp": "Suppression, absence, retard, division, rupture, dispersion ; aussi une rencontre avec quelqu'un que le Consultant a compromis.",
+      "meaningReversed": "Aliénation mentale, erreur, perte, distraction, désordre, confusion.",
+      "description": "Trois épées perçant un cœur ; nuage et pluie derrière."
+    },
+    "d04": {
+      "name": "Quatre d'Épées",
+      "meaningUp": "Vigilance, retraite, solitude, repos de l'ermite, exil, tombe et cercueil.",
+      "meaningReversed": "Administration sage, circonspection, économie, avarice, précaution, testament.",
+      "description": "L'effigie d'un chevalier dans l'attitude de la prière, de longueur sur sa tombe."
+    },
+    "d05": {
+      "name": "Cinq d'Épées",
+      "meaningUp": "Dégradation, destruction, révocation, infamie, déshonneur, perte.",
+      "meaningReversed": "La même ; enterrement et obsèques.",
+      "description": "Un homme dédaigneux regarde après deux figures se retirant. Leurs épées gisent sur le sol. Il en porte deux autres sur son épaule gauche."
+    },
+    "d06": {
+      "name": "Six d'Épées",
+      "meaningUp": "Voyage par eau, route, chemin, envoyé, commissionnaire, expédient.",
+      "meaningReversed": "Déclaration, confession, publicité ; un compte dit—Perte.",
+      "description": "Un passeur transportant des passagers dans son bac vers la rive plus lointaine."
+    },
+    "d07": {
+      "name": "Sept d'Épées",
+      "meaningUp": "Dessin, tentative, souhait, espoir, confiance ; aussi querellant, un plan qui peut échouer, ennui.",
+      "meaningReversed": "Bon conseil, conseil, instruction, calomnie, bavardage.",
+      "description": "Un homme dans l'acte de porter loin cinq épées rapidement ; les deux autres restent fixées dans le sol."
+    },
+    "d08": {
+      "name": "Huit d'Épées",
+      "meaningUp": "Mauvaises nouvelles, chagrin violent, crise, censure, pouvoir en entraves, conflit, calomnie ; maladie.",
+      "meaningReversed": "Inquiétude, difficulté, opposition, accident, trahison ; aussi fatalité, dur travail.",
+      "description": "Une femme, liée et encapuchonnée, avec les épées de la carte autour d'elle."
+    },
+    "d09": {
+      "name": "Neuf d'Épées",
+      "meaningUp": "Mort, échec, avortement, retard, tromperie, déception, désespoir.",
+      "meaningReversed": "Emprisonnement, soupçon, doute, peur raisonnable, honte.",
+      "description": "Une assise sur son canapé en lamentation, avec les épées sur elle."
+    },
+    "d10": {
+      "name": "Dix d'Épées",
+      "meaningUp": "Douleur, affliction, larmes, tristesse, désolation. Ce n'est pas spécialement une carte de mort violente.",
+      "meaningReversed": "Avantage, profit, succès, faveur, mais aucun d'eux n'est permanent.",
+      "description": "Une figure prostrée, percée par toutes les épées appartenant à la carte."
+    },
+    "d11": {
+      "name": "Valet d'Épées",
+      "meaningUp": "Autorité, surveillance, service secret, vigilance, espionnage, examen.",
+      "meaningReversed": "Le côté plus mauvais de ces qualités ; aussi maladie est caractéristique.",
+      "description": "Une figure agile, active tient une épée droite dans les deux mains, tout en agissant de marche rapide."
+    },
+    "d12": {
+      "name": "Chevalier d'Épées",
+      "meaningUp": "Habileté, bravoure, capacité, défense, adresse, inimitié, colère, guerre, destruction, opposition, résistance, ruine.",
+      "meaningReversed": "Imprudence, incapacité, extravagance.",
+      "description": "Il chevauche en plein cours, comme dispersant ses ennemis."
+    },
+    "d13": {
+      "name": "Reine d'Épées",
+      "meaningUp": "Veuvage, tristesse féminine et embarras, absence, stérilité, deuil, privation, séparation.",
+      "meaningReversed": "Malice, bigoterie, artifice, pruderie, bale, tromperie.",
+      "description": "Sa main droite élève l'arme verticalement et la poignée repose sur un bras de sa chaise royale."
+    },
+    "d14": {
+      "name": "Roi d'Épées",
+      "meaningUp": "Juge, autorité, commandement, intelligence militante ; un homme de loi, armée ou autre service.",
+      "meaningReversed": "Cruauté, perversité, barbarie, perfidie, intention mauvaise.",
+      "description": "Il siège en jugement, tenant l'insigne non dégainé de sa suite."
+    },
+    "e01": {
+      "name": "As de Deniers",
+      "meaningUp": "Contentement parfait, félicité, extase ; intelligence rapide ; or.",
+      "meaningReversed": "Le côté mauvais de la richesse, mauvaise intelligence ; aussi grandes richesses.",
+      "description": "Une main sortant d'un nuage tend un pentacle."
+    },
+    "e02": {
+      "name": "Deux de Deniers",
+      "meaningUp": "Gaieté, récréation ; nouvelles, messages par écrit, obstacles, agitation, trouble, embrouillement.",
+      "meaningReversed": "Gaieté forcée, plaisir simulé, sens littéral, écriture, composition, lettres d'échange.",
+      "description": "Un jeune homme, dans l'acte de danser, a un pentacle dans chaque main, connectés par un cordon sans fin."
+    },
+    "e03": {
+      "name": "Trois de Deniers",
+      "meaningUp": "Commerce, travail qualifié ; aristocratie, renom, gloire.",
+      "meaningReversed": "Médiocrité dans le travail et autrement, puérilité, faiblesse.",
+      "description": "Un sculpteur à son travail dans un monastère."
+    },
+    "e04": {
+      "name": "Quatre de Deniers",
+      "meaningUp": "Sûreté des possessions, s'accrochant à ce qu'on a, don, legs, héritage.",
+      "meaningReversed": "Suspense, retard, opposition.",
+      "description": "Une figure couronnée, ayant un pentacle sur sa couronne, serre un autre avec mains et bras ; deux pentacles sont sous ses pieds."
+    },
+    "e05": {
+      "name": "Cinq de Deniers",
+      "meaningUp": "Trouble matériel, dénuement ; ruine, amour discordant, désordre, chaos.",
+      "meaningReversed": "Désordre, chaos, ruine, discorde, prodigalité.",
+      "description": "Deux mendiants dans une tempête de neige passent une croisée éclairée."
+    },
+    "e06": {
+      "name": "Six de Deniers",
+      "meaningUp": "Prospérité présente, générosité, dons ; aussi attention, vigilance ; maintenant est le temps accepté.",
+      "meaningReversed": "Désir, cupidité, envie, jalousie, illusion.",
+      "description": "Une personne dans la guise d'un marchand pèse de l'argent dans une paire de balances et le distribue aux nécessiteux."
+    },
+    "e07": {
+      "name": "Sept de Deniers",
+      "meaningUp": "Argent, affaires, troc ; altercation, querelles ; innocence, ingéniosité, purgation.",
+      "meaningReversed": "Cause d'anxiété concernant l'argent ; aussi un indice pour mettre de l'argent à usure.",
+      "description": "Un jeune homme, s'appuyant sur son bâton, regarde intensément sept pentacles attachés à une touffe de verdure sur sa droite."
+    },
+    "e08": {
+      "name": "Huit de Deniers",
+      "meaningUp": "Travail, emploi, commission, artisanat, habileté dans l'artisanat et les affaires.",
+      "meaningReversed": "Ambition vidée, vanité, cupidité, exaction, usure. Aussi une arme létale.",
+      "description": "Un artiste en pierre à son travail, qu'il expose sous la forme de trophées."
+    },
+    "e09": {
+      "name": "Neuf de Deniers",
+      "meaningUp": "Prudence, sécurité, succès, accomplissement, certitude, discernement.",
+      "meaningReversed": "Rouerie, tromperie, projet vidé, mauvaise foi.",
+      "description": "Une femme, avec un oiseau sur son poignet, se tient au milieu d'une grande abondance de vignes dans le jardin d'une maison seigneuriale."
+    },
+    "e10": {
+      "name": "Dix de Deniers",
+      "meaningUp": "Gain, richesses ; affaires familiales, archives, extraction, l'abode d'une famille.",
+      "meaningReversed": "Chance, fatalité, perte, vol, jeux de hasard.",
+      "description": "Un homme et une femme sous une arche qui donne entrée à une maison et un domaine."
+    },
+    "e11": {
+      "name": "Valet de Deniers",
+      "meaningUp": "Application, étude, érudition, réflexion ; aussi nouvelles, messages et leur porteur.",
+      "meaningReversed": "Prodigalité, dissipation, libéralité, luxe ; nouvelles défavorables.",
+      "description": "Une figure juvénile, regardant intensément le pentacle qui plane sur ses mains élevées."
+    },
+    "e12": {
+      "name": "Chevalier de Deniers",
+      "meaningUp": "Utilité, serviabilité, intérêt, responsabilité, rectitude.",
+      "meaningReversed": "Inertie, oisiveté, repos, stagnation ; aussi découragement, négligence.",
+      "description": "Il chevauche un cheval lent, endurant, lourd, auquel son propre aspect correspond."
+    },
+    "e13": {
+      "name": "Reine de Deniers",
+      "meaningUp": "Opulence, générosité, magnificence, sécurité, liberté.",
+      "meaningReversed": "Mal, soupçon, suspense, peur, méfiance.",
+      "description": "Le visage suggère grandeur d'âme ; elle a le sérieux de l'intelligence ; elle contemple son symbole."
+    },
+    "e14": {
+      "name": "Roi de Deniers",
+      "meaningUp": "Vaillance, intelligence réalisant, affaires et aptitude intellectuelle normale ; aussi dons mathématiques.",
+      "meaningReversed": "Vice, faiblesse, laideur, perversité, corruption, péril.",
+      "description": "La figure n'appelle pas de description spéciale ; le visage est plutôt sombre, suggérant aussi courage, mais quelque peu léthargique."
+    },
+    "z00": {
+      "name": "Carte Blanche",
+      "meaningUp": "Une carte de potentiel infini et mystère.",
+      "meaningReversed": "Incertitude, l'inconnu.",
+      "description": "Une toile vierge attendant sa destinée."
+    },
+    "z01": {
+      "name": "Dos de Carte",
+      "meaningUp": "Le caché, le non révélé.",
+      "meaningReversed": "Secrets gardés, mystères dissimulés.",
+      "description": "Le dos orné du jeu de tarot, cachant ce qui se trouve dessous."
+    }
+  },
+  "actions": {
+    "shuffle": "Mélanger",
+    "draw": "Tirer une Carte",
+    "reset": "Réinitialiser",
+    "flip": "Retourner la Carte"
+  },
+  "language": {
+    "select": "Choisir la Langue",
+    "en": "Anglais",
+    "pt-BR": "Portugais (Brésil)",
+    "fr": "Français"
+  },
+  "cardDetails": {
+    "description": "Description",
+    "upright": "À l'endroit",
+    "reversed": "À l'envers",
+    "hide": "Masquer les détails",
+    "show": "Afficher les détails"
+  }
+}
