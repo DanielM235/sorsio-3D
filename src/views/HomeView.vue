@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import CardFilterMenu from '@/components/ui/CardFilterMenu.vue';
 import TarotGallery from '@/components/three/TarotGallery.vue';
 import type { CardInfo } from '@/data/cards';
 import { getCardDetailsFromInfo, type CardDetails } from '@/data/cardDetails';
+
+const { t } = useI18n();
 
 const selectedCard = ref<CardInfo | null>(null);
 const cardFilter = ref<'all' | 'major'>('major');
@@ -37,7 +40,7 @@ function onCardSelected(card: CardInfo | null): void {
             <!-- Card header -->
             <div class="card-header">
               <span class="card-category-badge">{{ selectedCard.category }}</span>
-              <h2 class="card-name">{{ cardDetails.name }}</h2>
+              <h2 class="card-name">{{ t(cardDetails.name) }}</h2>
             </div>
 
             <!-- Divider -->
@@ -47,9 +50,9 @@ function onCardSelected(card: CardInfo | null): void {
             <div class="card-section">
               <h3 class="section-title">
                 <span class="section-icon">📜</span>
-                Description
+                {{ t('cardDetails.description') }}
               </h3>
-              <p class="section-text">{{ cardDetails.description }}</p>
+              <p class="section-text">{{ t(cardDetails.description) }}</p>
             </div>
 
             <!-- Meanings -->
@@ -58,18 +61,18 @@ function onCardSelected(card: CardInfo | null): void {
               <div class="meaning-card meaning-upright">
                 <div class="meaning-header">
                   <span class="meaning-icon">☀️</span>
-                  <h4 class="meaning-title">Upright</h4>
+                  <h4 class="meaning-title">{{ t('cardDetails.upright') }}</h4>
                 </div>
-                <p class="meaning-text">{{ cardDetails.meaningUp }}</p>
+                <p class="meaning-text">{{ t(cardDetails.meaningUp) }}</p>
               </div>
 
               <!-- Reversed meaning -->
               <div class="meaning-card meaning-reversed">
                 <div class="meaning-header">
                   <span class="meaning-icon">🌙</span>
-                  <h4 class="meaning-title">Reversed</h4>
+                  <h4 class="meaning-title">{{ t('cardDetails.reversed') }}</h4>
                 </div>
-                <p class="meaning-text">{{ cardDetails.meaningReversed }}</p>
+                <p class="meaning-text">{{ t(cardDetails.meaningReversed) }}</p>
               </div>
             </div>
           </div>
