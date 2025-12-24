@@ -1,0 +1,9 @@
+// =============================================================================
+// THEME VARIABLES INDEX
+// =============================================================================
+// This file forwards all theme variables for easy importing in components
+// Usage: @use '@/assets/styles/variables' as *;
+
+@forward 'colors';
+@forward 'typography';
+@forward 'spacing';
