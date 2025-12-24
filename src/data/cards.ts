@@ -75,7 +75,18 @@ export const CARDS_BY_CATEGORY = {
   special,
 };
 
+/**
+ * Get the full path to a card image.
+ * Supports custom base URL and cards directory configuration.
+ */
 export function getCardImagePath(card: CardInfo): string {
   const baseUrl = import.meta.env.VITE_BASE_URL || '/';
-  return `${baseUrl}cards/${card.filename}`;
+  const cardsPath = import.meta.env.VITE_CARDS_PATH || 'cards';
+
+  // Normalize base URL to always end with a slash
+  const normalizedBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  // Remove leading slash from cards path if present
+  const normalizedCardsPath = cardsPath.startsWith('/') ? cardsPath.slice(1) : cardsPath;
+
+  return `${normalizedBase}${normalizedCardsPath}/${card.filename}`;
 }

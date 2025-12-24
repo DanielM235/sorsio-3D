@@ -49,6 +49,11 @@ const defaultCameraLookAt = new THREE.Vector3(0, 0, 0);
 let isDragging = false;
 let hasUserInteracted = false; // Track if user has manually controlled the view
 let previousMousePosition = { x: 0, y: 0 };
+// Touch control state
+let isTouchDragging = false;
+let previousTouchPosition = { x: 0, y: 0 };
+let initialPinchDistance = 0;
+let isPinching = false;
 // theta = -PI/2 means camera on negative X axis
 let sphericalPosition = { theta: -Math.PI / 2, phi: Math.PI / 2, radius: 40 };
 const MIN_RADIUS = 15;
@@ -115,6 +120,12 @@ function initScene(): void {
   renderer.domElement.addEventListener('mouseleave', onMouseUp);
   renderer.domElement.addEventListener('wheel', onWheel, { passive: false });
   renderer.domElement.addEventListener('click', onClick);
+
+  // Touch event listeners for mobile
+  renderer.domElement.addEventListener('touchstart', onTouchStart, { passive: false });
+  renderer.domElement.addEventListener('touchmove', onTouchMove, { passive: false });
+  renderer.domElement.addEventListener('touchend', onTouchEnd);
+  renderer.domElement.addEventListener('touchcancel', onTouchEnd);
 
   // Start render loop
   animate();
@@ -393,6 +404,134 @@ function onWheel(event: WheelEvent): void {
   updateCameraFromSpherical();
 }
 
+// Touch event handlers for mobile
+function onTouchStart(event: TouchEvent): void {
+  if (!containerRef.value) return;
+
+  if (event.touches.length === 1) {
+    // Single touch - start drag or check for card tap
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    const rect = containerRef.value.getBoundingClientRect();
+
+    // Update mouse position for raycasting
+    mouse.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+
+    // Check if touching a card
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(cardMeshes);
+
+    if (intersects.length > 0 && !focusedCard) {
+      // Touching a card - don't start dragging, will handle in touchend as a tap
+      hoveredCard = intersects[0]?.object as THREE.Mesh;
+    } else if (!focusedCard) {
+      // Start dragging
+      isTouchDragging = true;
+      previousTouchPosition.x = touch.clientX;
+      previousTouchPosition.y = touch.clientY;
+    }
+  } else if (event.touches.length === 2 && !focusedCard) {
+    // Two touches - start pinch zoom
+    event.preventDefault();
+    isPinching = true;
+    isTouchDragging = false;
+    const touch0 = event.touches[0];
+    const touch1 = event.touches[1];
+    if (!touch0 || !touch1) return;
+
+    const dx = touch0.clientX - touch1.clientX;
+    const dy = touch0.clientY - touch1.clientY;
+    initialPinchDistance = Math.sqrt(dx * dx + dy * dy);
+  }
+}
+
+function onTouchMove(event: TouchEvent): void {
+  if (!containerRef.value) return;
+
+  if (event.touches.length === 1 && isTouchDragging && !focusedCard) {
+    // Single touch drag - rotate camera
+    event.preventDefault();
+    hasUserInteracted = true;
+
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    const deltaX = touch.clientX - previousTouchPosition.x;
+    const deltaY = touch.clientY - previousTouchPosition.y;
+
+    // Rotate camera around center (spherical coordinates)
+    sphericalPosition.theta -= deltaX * 0.008;
+    sphericalPosition.phi += deltaY * 0.008;
+
+    // Clamp phi to prevent flipping
+    sphericalPosition.phi = Math.max(MIN_PHI, Math.min(MAX_PHI, sphericalPosition.phi));
+
+    updateCameraFromSpherical();
+
+    previousTouchPosition.x = touch.clientX;
+    previousTouchPosition.y = touch.clientY;
+  } else if (event.touches.length === 2 && isPinching && !focusedCard) {
+    // Pinch zoom
+    event.preventDefault();
+    hasUserInteracted = true;
+
+    const touch0 = event.touches[0];
+    const touch1 = event.touches[1];
+    if (!touch0 || !touch1) return;
+
+    const dx = touch0.clientX - touch1.clientX;
+    const dy = touch0.clientY - touch1.clientY;
+    const currentDistance = Math.sqrt(dx * dx + dy * dy);
+
+    const pinchScale = initialPinchDistance / currentDistance;
+    const zoomDelta = (pinchScale - 1) * 20;
+
+    sphericalPosition.radius += zoomDelta;
+    sphericalPosition.radius = Math.max(MIN_RADIUS, Math.min(MAX_RADIUS, sphericalPosition.radius));
+
+    updateCameraFromSpherical();
+    initialPinchDistance = currentDistance;
+  }
+}
+
+function onTouchEnd(event: TouchEvent): void {
+  if (!containerRef.value) return;
+
+  // Handle tap on card (if we were touching a card and not dragging)
+  if (hoveredCard && !isTouchDragging && !isPinching && event.changedTouches.length > 0) {
+    if (!isTransitioning.value) {
+      if (focusedCard === hoveredCard) {
+        unfocusCard();
+      } else {
+        focusOnCard(hoveredCard);
+      }
+    }
+  } else if (focusedCard && !hoveredCard && event.changedTouches.length > 0) {
+    // Tap on empty space when focused - unfocus
+    const touch = event.changedTouches[0];
+    if (!touch) return;
+
+    const rect = containerRef.value.getBoundingClientRect();
+    mouse.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(cardMeshes);
+
+    if (intersects.length === 0 && !isTransitioning.value) {
+      unfocusCard();
+    }
+  }
+
+  // Reset touch state
+  isTouchDragging = false;
+  isPinching = false;
+  hoveredCard = null;
+  initialPinchDistance = 0;
+}
+
 function updateCameraFromSpherical(): void {
   // Convert spherical to cartesian coordinates
   const x =
@@ -664,6 +803,10 @@ function cleanup(): void {
   renderer.domElement.removeEventListener('mouseleave', onMouseUp);
   renderer.domElement.removeEventListener('wheel', onWheel);
   renderer.domElement.removeEventListener('click', onClick);
+  renderer.domElement.removeEventListener('touchstart', onTouchStart);
+  renderer.domElement.removeEventListener('touchmove', onTouchMove);
+  renderer.domElement.removeEventListener('touchend', onTouchEnd);
+  renderer.domElement.removeEventListener('touchcancel', onTouchEnd);
   renderer.dispose();
 
   if (containerRef.value && renderer?.domElement) {

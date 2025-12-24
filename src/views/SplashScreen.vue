@@ -7,6 +7,9 @@ import { useMenuAnimation } from '@/composables/useMenuAnimation';
 
 const { t } = useI18n();
 
+// App version from package.json (injected at build time)
+const appVersion = __APP_VERSION__;
+
 // Container ref for exit animation
 const containerRef = ref<HTMLElement | null>(null);
 
@@ -81,6 +84,11 @@ const { isReady, navigateTo } = useMenuAnimation(particles, decorativeCards, con
         <div class="card-shine" />
       </button>
     </nav>
+
+    <!-- Version footer -->
+    <footer class="version-footer">
+      <span class="version-text">v{{ appVersion }}</span>
+    </footer>
   </div>
 </template>
 
@@ -356,6 +364,40 @@ const { isReady, navigateTo } = useMenuAnimation(particles, decorativeCards, con
 
   @media (min-width: 800px) {
     font-size: 0.7rem;
+  }
+}
+
+// Version footer
+.version-footer {
+  position: absolute;
+  bottom: $spacing-4;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: $z-index-fixed;
+}
+
+.version-text {
+  font-family: $font-family-mono;
+  font-size: $font-size-xs;
+  color: rgba($color-text-muted, 0.5);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: fade-in 1s ease-out 2s forwards;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: rgba($color-primary-light, 0.7);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

@@ -526,6 +526,8 @@
   "cardDetails": {
     "description": "Description",
     "upright": "À l'endroit",
-    "reversed": "À l'envers"
+    "reversed": "À l'envers",
+    "hide": "Masquer les détails",
+    "show": "Afficher les détails"
   }
 }
