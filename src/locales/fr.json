@@ -4,8 +4,19 @@
     "description": "Application éducative interactive pour le Tarot de Marseille",
     "loading": "Chargement..."
   },
+  "menu": {
+    "explore": "Explorer les Cartes",
+    "exploreDesc": "Découvrez les 78 cartes du Tarot de Marseille",
+    "simpleDraw": "Tirage Simple",
+    "simpleDrawDesc": "Tirez une carte et recevez son message",
+    "resources": "Ressources",
+    "resourcesDesc": "Liens externes et contenus additionnels",
+    "about": "À Propos",
+    "aboutDesc": "En savoir plus sur ce projet"
+  },
   "navigation": {
     "home": "Accueil",
+    "back": "Retour",
     "learn": "Apprendre",
     "practice": "Pratiquer",
     "about": "À propos"

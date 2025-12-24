@@ -1,0 +1,650 @@
+/**
+ * Extended card details from Tarot data
+ * Contains name, description, and meanings for each card
+ */
+
+export interface CardDetails {
+  name: string;
+  description: string;
+  meaningUp: string;
+  meaningReversed: string;
+}
+
+/**
+ * Mapping from card filename (without extension) to card details
+ */
+export const CARD_DETAILS: Record<string, CardDetails> = {
+  // Major Arcana
+  a01: {
+    name: 'The Magician',
+    meaningUp:
+      'Skill, diplomacy, address, subtlety; sickness, pain, loss, disaster, snares of enemies; self-confidence, will; the Querent, if male.',
+    meaningReversed: 'Physician, Magus, mental disease, disgrace, disquiet.',
+    description:
+      'A youthful figure in the robe of a magician, having the countenance of divine Apollo, with smile of confidence and shining eyes. Above his head is the mysterious sign of the Holy Spirit, the sign of life, like an endless cord, forming the figure 8 in a horizontal position. About his waist is a serpent-cincture, the serpent appearing to devour its own tail. This is familiar to most as a conventional symbol of eternity, but here it indicates more especially the eternity of attainment in the spirit.',
+  },
+  a02: {
+    name: 'The High Priestess',
+    meaningUp:
+      'Secrets, mystery, the future as yet unrevealed; the woman who interests the Querent, if male; the Querent herself, if female; silence, tenacity; mystery, wisdom, science.',
+    meaningReversed: 'Passion, moral or physical ardour, conceit, surface knowledge.',
+    description:
+      'She has the lunar crescent at her feet, a horned diadem on her head, with a globe in the middle place, and a large solar cross on her breast. The scroll in her hands is inscribed with the word Tora, signifying the Greater Law, the Secret Law and the second sense of the Word. She is seated between the white and black pillars of the mystic Temple, and the veil of the Temple is behind her.',
+  },
+  a03: {
+    name: 'The Empress',
+    meaningUp:
+      'Fruitfulness, action, initiative, length of days; the unknown, clandestine; also difficulty, doubt, ignorance.',
+    meaningReversed:
+      'Light, truth, the unravelling of involved matters, public rejoicings; according to another reading, vacillation.',
+    description:
+      'A stately figure, seated, having rich vestments and royal aspect, as of a daughter of heaven and earth. Her diadem is of twelve stars, gathered in a cluster. The symbol of Venus is on the shield which rests near her. A field of corn is ripening in front of her, and beyond there is a fall of water.',
+  },
+  a04: {
+    name: 'The Emperor',
+    meaningUp:
+      'Stability, power, protection, realization; a great person; aid, reason, conviction; also authority and will.',
+    meaningReversed:
+      'Benevolence, compassion, credit; also confusion to enemies, obstruction, immaturity.',
+    description:
+      "He has a form of the Crux ansata for his sceptre and a globe in his left hand. He is a crowned monarch—commanding, stately, seated on a throne, the arms of which are fronted by rams' heads. He is executive and realization, the power of this world, here clothed with the highest of its natural attributes.",
+  },
+  a05: {
+    name: 'The Hierophant',
+    meaningUp:
+      'Marriage, alliance, captivity, servitude; by another account, mercy and goodness; inspiration; the man to whom the Querent has recourse.',
+    meaningReversed: 'Society, good understanding, concord, overkindness, weakness.',
+    description:
+      'He wears the triple crown and is seated between two pillars. In his left hand he holds a sceptre terminating in the triple cross, and with his right hand he gives the ecclesiastical sign of esotericism. At his feet are the crossed keys, and two priestly ministers in albs kneel before him.',
+  },
+  a06: {
+    name: 'The Lovers',
+    meaningUp: 'Attraction, love, beauty, trials overcome.',
+    meaningReversed:
+      'Failure, foolish designs. Another account speaks of marriage frustrated and contrarieties of all kinds.',
+    description:
+      'The sun shines in the zenith, and beneath is a great winged figure with arms extended, pouring down influences. In the foreground are two human figures, male and female, unveiled before each other, as if Adam and Eve when they first occupied the paradise of the earthly body.',
+  },
+  a07: {
+    name: 'The Chariot',
+    meaningUp: 'Succour, providence; also war, triumph, presumption, vengeance, trouble.',
+    meaningReversed: 'Riot, quarrel, dispute, litigation, defeat.',
+    description:
+      'An erect and princely figure carrying a drawn sword. On the shoulders of the victorious hero are the Urim and Thummim. He has led captivity captive; he is conquest on all planes—in the mind, in science, in progress, in certain trials of initiation. Two sphinxes draw his chariot.',
+  },
+  a08: {
+    name: 'Strength',
+    meaningUp: 'Power, energy, action, courage, magnanimity; also complete success and honours.',
+    meaningReversed: 'Despotism, abuse of power, weakness, discord, sometimes even disgrace.',
+    description:
+      'A woman, over whose head there broods the same symbol of life which we have seen in the card of the Magician, is closing the jaws of a lion. Her beneficent fortitude has already subdued the lion, which is being led by a chain of flowers.',
+  },
+  a09: {
+    name: 'The Hermit',
+    meaningUp:
+      'Prudence, circumspection; also and especially treason, dissimulation, roguery, corruption.',
+    meaningReversed: 'Concealment, disguise, policy, fear, unreasoned caution.',
+    description:
+      'The figure is seen holding up his beacon on an eminence. It is a star which shines in the lantern. The Hermit is not a wise man in search of truth and justice; his beacon intimates that "where I am, you also may be."',
+  },
+  a10: {
+    name: 'Wheel of Fortune',
+    meaningUp: 'Destiny, fortune, success, elevation, luck, felicity.',
+    meaningReversed: 'Increase, abundance, superfluity.',
+    description:
+      "The four Living Creatures of Ezekiel occupy the angles of the card, and the wheel itself follows Lévi's indications in respect of Ezekiel's vision. The Sphinx is the equilibrium therein. The transliteration of Taro as Rota is inscribed on the wheel.",
+  },
+  a11: {
+    name: 'Justice',
+    meaningUp: 'Equity, rightness, probity, executive; triumph of the deserving side in law.',
+    meaningReversed:
+      'Law in all its departments, legal complications, bigotry, bias, excessive severity.',
+    description:
+      'The figure is seated between pillars, like the High Priestess. The moral principle which deals unto every man according to his works differs in its essence from the spiritual justice which is involved in the idea of election.',
+  },
+  a12: {
+    name: 'The Hanged Man',
+    meaningUp:
+      'Wisdom, circumspection, discernment, trials, sacrifice, intuition, divination, prophecy.',
+    meaningReversed: 'Selfishness, the crowd, body politic.',
+    description:
+      'The gallows from which he is suspended forms a Tau cross, while the figure—from the position of the legs—forms a fylfot cross. There is a nimbus about the head of the seeming martyr. The tree of sacrifice is living wood, with leaves thereon; the face expresses deep entrancement, not suffering.',
+  },
+  a13: {
+    name: 'Death',
+    meaningUp:
+      'End, mortality, destruction, corruption; also, for a man, the loss of a benefactor; for a woman, many contrarieties; for a maid, failure of marriage projects.',
+    meaningReversed: 'Inertia, sleep, lethargy, petrifaction, somnambulism; hope destroyed.',
+    description:
+      'The mysterious horseman moves slowly, bearing a black banner emblazoned with the Mystic Rose, which signifies life. Between two pillars on the verge of the horizon there shines the sun of immortality. The horseman carries no visible weapon, but king and child and maiden fall before him.',
+  },
+  a14: {
+    name: 'Temperance',
+    meaningUp: 'Economy, moderation, frugality, management, accommodation.',
+    meaningReversed:
+      'Things connected with churches, religions, sects, the priesthood; also disunion, unfortunate combinations, competing interests.',
+    description:
+      'A winged angel, with the sign of the sun upon his forehead and on his breast the square and triangle of the septenary. The figure is pouring the essences of life from chalice to chalice. It has one foot upon the earth and one upon waters, thus illustrating the nature of the essences.',
+  },
+  a15: {
+    name: 'The Devil',
+    meaningUp:
+      'Ravage, violence, vehemence, extraordinary efforts, force, fatality; that which is predestined but is not for this reason evil.',
+    meaningReversed: 'Evil fatality, weakness, pettiness, blindness.',
+    description:
+      'The Horned Goat of Mendes, with wings like those of a bat, is standing on an altar. At the pit of the stomach there is the sign of Mercury. Two figures, male and female, are chained to the altar. These are analogous with those of The Lovers card, as if Adam and Eve after the Fall.',
+  },
+  a16: {
+    name: 'The Tower',
+    meaningUp:
+      'Misery, distress, indigence, adversity, calamity, disgrace, deception, ruin. It is a card in particular of unforeseen catastrophe.',
+    meaningReversed: 'The same in a lesser degree; also oppression, imprisonment, tyranny.',
+    description:
+      'It is the ruin of the House of Life, when evil has prevailed therein, and above all it is the rending of a House of Doctrine. It illustrates the old truth that "except the Lord build the house, they labour in vain that build it."',
+  },
+  a17: {
+    name: 'The Star',
+    meaningUp:
+      'Loss, theft, privation, abandonment; another reading says—hope and bright prospects.',
+    meaningReversed: 'Arrogance, haughtiness, impotence.',
+    description:
+      "A great, radiant star of eight rays, surrounded by seven lesser stars. The female figure in the foreground is entirely naked. She pours Water of Life from two great ewers, irrigating sea and land. The star is l'étoile flamboyante, which appears in Masonic symbolism.",
+  },
+  a18: {
+    name: 'The Moon',
+    meaningUp:
+      'Hidden enemies, danger, calumny, darkness, terror, deception, occult forces, error.',
+    meaningReversed: 'Instability, inconstancy, silence, lesser degrees of deception and error.',
+    description:
+      'The moon is increasing on the side of mercy. The card represents life of the imagination apart from life of the spirit. The path between the towers is the issue into the unknown. The dog and wolf are the fears of the natural mind in the presence of that place of exit.',
+  },
+  a19: {
+    name: 'The Sun',
+    meaningUp: 'Material happiness, fortunate marriage, contentment.',
+    meaningReversed: 'The same in a lesser sense.',
+    description:
+      'The naked child mounted on a white horse and displaying a red standard is the destiny of the Supernatural East and the great and holy light which goes before the endless procession of humanity. The sun is that of consciousness in the spirit—the direct as the antithesis of the reflected light.',
+  },
+  a20: {
+    name: 'Judgement',
+    meaningUp:
+      'Change of position, renewal, outcome. Another account specifies total loss through lawsuit.',
+    meaningReversed: 'Weakness, pusillanimity, simplicity; also deliberation, decision, sentence.',
+    description:
+      'The great angel is encompassed by clouds, but he blows his bannered trumpet, and the cross is displayed on the banner. The dead are rising from their tombs. It is the card which registers the accomplishment of the great work of transformation in answer to the summons of the Supernal.',
+  },
+  a21: {
+    name: 'The World',
+    meaningUp: 'Assured success, recompense, voyage, route, emigration, flight, change of place.',
+    meaningReversed: 'Inertia, fixity, stagnation, permanence.',
+    description:
+      'It represents the perfection and end of the Cosmos, the secret which is within it, the rapture of the universe when it understands itself in God. It is further the state of the soul in the consciousness of Divine Vision, reflected from the self-knowing spirit.',
+  },
+  a22: {
+    name: 'The Fool',
+    meaningUp: 'Folly, mania, extravagance, intoxication, delirium, frenzy, bewrayment.',
+    meaningReversed: 'Negligence, absence, distribution, carelessness, apathy, nullity, vanity.',
+    description:
+      'With light step, as if earth and its trammels had little power to restrain him, a young man in gorgeous vestments pauses at the brink of a precipice among the great heights of the world. His act of eager walking is still indicated, though he is stationary at the given moment. He is a prince of the other world on his travels through this one.',
+  },
+
+  // Wands (Minor Arcana)
+  b01: {
+    name: 'Ace of Wands',
+    meaningUp:
+      'Creation, invention, enterprise, the powers which result in these; principle, beginning, source; birth, family, origin.',
+    meaningReversed: 'Fall, decadence, ruin, perdition, to perish; also a certain clouded joy.',
+    description: 'A hand issuing from a cloud grasps a stout wand or club.',
+  },
+  b02: {
+    name: 'Two of Wands',
+    meaningUp:
+      'Riches, fortune, magnificence; on the other hand, physical suffering, disease, chagrin, sadness, mortification.',
+    meaningReversed: 'Surprise, wonder, enchantment, emotion, trouble, fear.',
+    description:
+      'A tall man looks from a battlemented roof over sea and shore; he holds a globe in his right hand, while a staff in his left rests on the battlement.',
+  },
+  b03: {
+    name: 'Three of Wands',
+    meaningUp:
+      'Established strength, enterprise, effort, trade, commerce, discovery; able co-operation in business.',
+    meaningReversed:
+      'The end of troubles, suspension or cessation of adversity, toil and disappointment.',
+    description:
+      "A calm, stately personage, with his back turned, looking from a cliff's edge at ships passing over the sea. Three staves are planted in the ground.",
+  },
+  b04: {
+    name: 'Four of Wands',
+    meaningUp:
+      'Country life, haven of refuge, a species of domestic harvest-home, repose, concord, harmony, prosperity, peace.',
+    meaningReversed:
+      'The meaning remains unaltered; prosperity, increase, felicity, beauty, embellishment.',
+    description:
+      'From the four great staves planted in the foreground there is a great garland suspended; two female figures uplift nosegays.',
+  },
+  b05: {
+    name: 'Five of Wands',
+    meaningUp:
+      'Imitation, sham fight, strenuous competition and struggle of the search after riches and fortune.',
+    meaningReversed: 'Litigation, disputes, trickery, contradiction.',
+    description:
+      'A posse of youths, who are brandishing staves, as if in sport or strife. It is mimic warfare.',
+  },
+  b06: {
+    name: 'Six of Wands',
+    meaningUp:
+      'A victor triumphing; great news, expectation crowned with its own desire, the crown of hope.',
+    meaningReversed:
+      'Apprehension, fear, as of a victorious enemy at the gate; treachery, disloyalty.',
+    description:
+      'A laurelled horseman bears one staff adorned with a laurel crown; footmen with staves are at his side.',
+  },
+  b07: {
+    name: 'Seven of Wands',
+    meaningUp:
+      'Valour, discussion, wordy strife; in business—negotiations, war of trade, barter, competition. A card of success.',
+    meaningReversed:
+      'Perplexity, embarrassments, anxiety. It is also a caution against indecision.',
+    description:
+      'A young man on a craggy eminence brandishing a staff; six other staves are raised towards him from below.',
+  },
+  b08: {
+    name: 'Eight of Wands',
+    meaningUp:
+      'Activity in undertakings, swiftness, as that of an express messenger; great haste, great hope, speed towards an end.',
+    meaningReversed:
+      'Arrows of jealousy, internal dispute, stingings of conscience, quarrels; domestic disputes.',
+    description:
+      'A flight of wands through an open country; but they draw to the term of their course.',
+  },
+  b09: {
+    name: 'Nine of Wands',
+    meaningUp:
+      'Strength in opposition. If attacked, the person will meet an onslaught boldly. With this, delay, suspension, adjournment.',
+    meaningReversed: 'Obstacles, adversity, calamity.',
+    description:
+      'The figure leans upon his staff and has an expectant look, as if awaiting an enemy. Behind are eight other staves—erect, in orderly disposition.',
+  },
+  b10: {
+    name: 'Ten of Wands',
+    meaningUp:
+      'Oppression, fortune, gain, any kind of success, and then it is the oppression of these things. Also false-seeming, disguise, perfidy.',
+    meaningReversed: 'Contrarieties, difficulties, intrigues, and their analogies.',
+    description: 'A man oppressed by the weight of the ten staves which he is carrying.',
+  },
+  b11: {
+    name: 'Page of Wands',
+    meaningUp: 'Dark young man, faithful, a lover, an envoy, a postman. Family intelligence.',
+    meaningReversed: 'Anecdotes, announcements, evil news. Also indecision and instability.',
+    description:
+      'A young man stands in the act of proclamation. He is unknown but faithful, and his tidings are strange.',
+  },
+  b12: {
+    name: 'Knight of Wands',
+    meaningUp:
+      'Departure, absence, flight, emigration. A dark young man, friendly. Change of residence.',
+    meaningReversed: 'Rupture, division, interruption, discord.',
+    description:
+      'He is shown as if upon a journey, armed with a short wand. The motion of the horse suggests the precipitate mood.',
+  },
+  b13: {
+    name: 'Queen of Wands',
+    meaningUp:
+      'A dark woman, countrywoman, friendly, chaste, loving, honourable. Also, love of money, success in business.',
+    meaningReversed:
+      'Good, economical, obliging, serviceable. Also opposition, jealousy, even deceit and infidelity.',
+    description:
+      "The Wands throughout this suit are always in leaf, as it is a suit of life and animation. The Queen's personality is magnetic.",
+  },
+  b14: {
+    name: 'King of Wands',
+    meaningUp:
+      'Dark man, friendly, countryman, generally married, honest and conscientious. May mean unexpected heritage.',
+    meaningReversed: 'Good, but severe; austere, yet tolerant.',
+    description:
+      'The King uplifts a flowering wand. He connects with the symbol of the lion, emblazoned on the back of his throne.',
+  },
+
+  // Cups (Minor Arcana)
+  c01: {
+    name: 'Ace of Cups',
+    meaningUp:
+      'House of the true heart, joy, content, abode, nourishment, abundance, fertility; Holy Table, felicity.',
+    meaningReversed: 'House of the false heart, mutation, instability, revolution.',
+    description:
+      'The hand issues from the cloud, holding the cup from which four streams are pouring; a dove descends to place the Wafer in the Cup.',
+  },
+  c02: {
+    name: 'Two of Cups',
+    meaningUp:
+      'Love, passion, friendship, affinity, union, concord, sympathy, the interrelation of the sexes.',
+    meaningReversed: 'Lust, cupidity, jealousy, wish, desire.',
+    description:
+      "A youth and maiden are pledging one another, and above their cups rises the Caduceus of Hermes, with a lion's head.",
+  },
+  c03: {
+    name: 'Three of Cups',
+    meaningUp:
+      'The conclusion of any matter in plenty, perfection and merriment; happy issue, victory, fulfilment, solace, healing.',
+    meaningReversed: 'Expedition, dispatch, achievement, end. Also excess in physical enjoyment.',
+    description: 'Maidens in a garden-ground with cups uplifted, as if pledging one another.',
+  },
+  c04: {
+    name: 'Four of Cups',
+    meaningUp:
+      'Weariness, disgust, aversion, imaginary vexations, as if the wine of this world had caused satiety only.',
+    meaningReversed: 'Novelty, presage, new instruction, new relations.',
+    description:
+      'A young man is seated under a tree and contemplates three cups; an arm issuing from a cloud offers him another cup.',
+  },
+  c05: {
+    name: 'Five of Cups',
+    meaningUp:
+      'Loss, but something remains over; inheritance, patrimony, transmission, but not corresponding to expectations.',
+    meaningReversed: 'News, alliances, affinity, consanguinity, ancestry, return, false projects.',
+    description:
+      'A dark, cloaked figure, looking sideways at three prone cups; two others stand upright behind him; a bridge leads to a small keep.',
+  },
+  c06: {
+    name: 'Six of Cups',
+    meaningUp:
+      'A card of the past and of memories, looking back on childhood; happiness, enjoyment from the past.',
+    meaningReversed: 'The future, renewal, that which will come to pass presently.',
+    description: 'Children in an old garden, their cups filled with flowers.',
+  },
+  c07: {
+    name: 'Seven of Cups',
+    meaningUp:
+      'Fairy favours, images of reflection, sentiment, imagination, things seen in the glass of contemplation.',
+    meaningReversed: 'Desire, will, determination, project.',
+    description:
+      'Strange chalices of vision; the images are more especially those of the fantastic spirit.',
+  },
+  c08: {
+    name: 'Eight of Cups',
+    meaningUp:
+      'The decline of a matter, or that a matter thought important is really of slight consequence.',
+    meaningReversed: 'Great joy, happiness, feasting.',
+    description:
+      'A man of dejected aspect is deserting the cups of his felicity, enterprise, or previous concern.',
+  },
+  c09: {
+    name: 'Nine of Cups',
+    meaningUp:
+      'Concord, contentment, physical bien-être; victory, success, advantage; satisfaction.',
+    meaningReversed: 'Truth, loyalty, liberty; but also mistakes, imperfections.',
+    description:
+      "A goodly personage has feasted to his heart's content; abundant refreshment of wine is on the arched counter behind him.",
+  },
+  c10: {
+    name: 'Ten of Cups',
+    meaningUp: 'Contentment, repose of the entire heart; perfection of human love and friendship.',
+    meaningReversed: 'Repose of the false heart, indignation, violence.',
+    description:
+      'Appearance of Cups in a rainbow; it is contemplated in wonder and ecstasy by a man and woman below, evidently husband and wife.',
+  },
+  c11: {
+    name: 'Page of Cups',
+    meaningUp:
+      'Fair young man, one impelled to render service; studious youth; news, message; application, reflection, meditation.',
+    meaningReversed: 'Taste, inclination, attachment, seduction, deception, artifice.',
+    description:
+      'A fair, pleasing, somewhat effeminate page contemplates a fish rising from a cup to look at him.',
+  },
+  c12: {
+    name: 'Knight of Cups',
+    meaningUp:
+      'Arrival, approach—sometimes that of a messenger; advances, proposition, invitation, incitement.',
+    meaningReversed: 'Trickery, artifice, subtlety, swindling, duplicity, fraud.',
+    description:
+      'Graceful, but not warlike; riding quietly, wearing a winged helmet, referring to higher graces of the imagination.',
+  },
+  c13: {
+    name: 'Queen of Cups',
+    meaningUp:
+      'Good, fair woman; honest, devoted woman who will do service; loving intelligence and the gift of vision.',
+    meaningReversed:
+      'Distinguished woman but one not to be trusted; perverse woman; vice, dishonour.',
+    description:
+      'Beautiful, fair, dreamy—as one who sees visions in a cup. She sees, but she also acts.',
+  },
+  c14: {
+    name: 'King of Cups',
+    meaningUp:
+      'Fair man, man of business, law, or divinity; responsible, disposed to oblige; equity, art and science.',
+    meaningReversed: 'Dishonest, double-dealing man; roguery, exaction, injustice, vice, scandal.',
+    description:
+      'He holds a sceptre in his left hand and a great cup in his right; his throne is set upon the sea.',
+  },
+
+  // Swords (Minor Arcana)
+  d01: {
+    name: 'Ace of Swords',
+    meaningUp:
+      'Triumph, the excessive degree in everything, conquest, triumph of force. A card of great force.',
+    meaningReversed:
+      'The same, but results are disastrous; another account says—loss, affliction, fury, violence.',
+    description:
+      'A hand issues from a cloud, grasping a sword, the point of which is encircled by a crown.',
+  },
+  d02: {
+    name: 'Two of Swords',
+    meaningUp:
+      'Conformity and the equipoise which it suggests, courage, friendship, concord in a state of arms.',
+    meaningReversed: 'Imposture, falsehood, duplicity, disloyalty.',
+    description: 'A hoodwinked female figure balances two swords upon her shoulders.',
+  },
+  d03: {
+    name: 'Three of Swords',
+    meaningUp:
+      'Removal, absence, delay, division, rupture, dispersion; also a meeting with one whom the Querent has compromised.',
+    meaningReversed: 'Mental alienation, error, loss, distraction, disorder, confusion.',
+    description: 'Three swords piercing a heart; cloud and rain behind.',
+  },
+  d04: {
+    name: 'Four of Swords',
+    meaningUp: "Vigilance, retreat, solitude, hermit's repose, exile, tomb and coffin.",
+    meaningReversed:
+      'Wise administration, circumspection, economy, avarice, precaution, testament.',
+    description: 'The effigy of a knight in the attitude of prayer, at full length upon his tomb.',
+  },
+  d05: {
+    name: 'Five of Swords',
+    meaningUp: 'Degradation, destruction, revocation, infamy, dishonour, loss.',
+    meaningReversed: 'The same; burial and obsequies.',
+    description:
+      'A disdainful man looks after two retreating figures. Their swords lie upon the ground. He carries two others on his left shoulder.',
+  },
+  d06: {
+    name: 'Six of Swords',
+    meaningUp: 'Journey by water, route, way, envoy, commissionary, expedient.',
+    meaningReversed: 'Declaration, confession, publicity; one account says—Loss.',
+    description: 'A ferryman carrying passengers in his punt to the further shore.',
+  },
+  d07: {
+    name: 'Seven of Swords',
+    meaningUp:
+      'Design, attempt, wish, hope, confidence; also quarrelling, a plan that may fail, annoyance.',
+    meaningReversed: 'Good advice, counsel, instruction, slander, babbling.',
+    description:
+      'A man in the act of carrying away five swords rapidly; the two others remain fixed in the ground.',
+  },
+  d08: {
+    name: 'Eight of Swords',
+    meaningUp:
+      'Bad news, violent chagrin, crisis, censure, power in trammels, conflict, calumny; sickness.',
+    meaningReversed:
+      'Disquiet, difficulty, opposition, accident, treachery; also fatality, hard work.',
+    description: 'A woman, bound and hoodwinked, with the swords of the card about her.',
+  },
+  d09: {
+    name: 'Nine of Swords',
+    meaningUp: 'Death, failure, miscarriage, delay, deception, disappointment, despair.',
+    meaningReversed: 'Imprisonment, suspicion, doubt, reasonable fear, shame.',
+    description: 'One seated on her couch in lamentation, with the swords over her.',
+  },
+  d10: {
+    name: 'Ten of Swords',
+    meaningUp:
+      'Pain, affliction, tears, sadness, desolation. It is not especially a card of violent death.',
+    meaningReversed: 'Advantage, profit, success, favour, but none of these are permanent.',
+    description: 'A prostrate figure, pierced by all the swords belonging to the card.',
+  },
+  d11: {
+    name: 'Page of Swords',
+    meaningUp: 'Authority, overseeing, secret service, vigilance, spying, examination.',
+    meaningReversed: 'More evil side of these qualities; also illness is characteristic.',
+    description:
+      'A lithe, active figure holds a sword upright in both hands, while in the act of swift walking.',
+  },
+  d12: {
+    name: 'Knight of Swords',
+    meaningUp:
+      'Skill, bravery, capacity, defence, address, enmity, wrath, war, destruction, opposition, resistance, ruin.',
+    meaningReversed: 'Imprudence, incapacity, extravagance.',
+    description: 'He is riding in full course, as if scattering his enemies.',
+  },
+  d13: {
+    name: 'Queen of Swords',
+    meaningUp:
+      'Widowhood, female sadness and embarrassment, absence, sterility, mourning, privation, separation.',
+    meaningReversed: 'Malice, bigotry, artifice, prudery, bale, deceit.',
+    description:
+      'Her right hand raises the weapon vertically and the hilt rests on an arm of her royal chair.',
+  },
+  d14: {
+    name: 'King of Swords',
+    meaningUp:
+      'Judge, authority, command, militant intelligence; a man of law, army or other service.',
+    meaningReversed: 'Cruelty, perversity, barbarity, perfidy, evil intention.',
+    description: 'He sits in judgment, holding the unsheathed sign of his suit.',
+  },
+
+  // Coins/Pentacles (Minor Arcana)
+  e01: {
+    name: 'Ace of Pentacles',
+    meaningUp: 'Perfect contentment, felicity, ecstasy; speedy intelligence; gold.',
+    meaningReversed: 'The evil side of wealth, bad intelligence; also great riches.',
+    description: 'A hand issuing from a cloud holds up a pentacle.',
+  },
+  e02: {
+    name: 'Two of Pentacles',
+    meaningUp:
+      'Gaiety, recreation; news, messages in writing, obstacles, agitation, trouble, embroilment.',
+    meaningReversed:
+      'Enforced gaiety, simulated enjoyment, literal sense, handwriting, composition, letters of exchange.',
+    description:
+      'A young man, in the act of dancing, has a pentacle in either hand, connected by an endless cord.',
+  },
+  e03: {
+    name: 'Three of Pentacles',
+    meaningUp: 'Trade, skilled labour; aristocracy, renown, glory.',
+    meaningReversed: 'Mediocrity in work and otherwise, puerility, petty, weakness.',
+    description: 'A sculptor at his work in a monastery.',
+  },
+  e04: {
+    name: 'Four of Pentacles',
+    meaningUp: 'Surety of possessions, cleaving to that which one has, gift, legacy, inheritance.',
+    meaningReversed: 'Suspense, delay, opposition.',
+    description:
+      'A crowned figure, having a pentacle over his crown, clasps another with hands and arms; two pentacles are under his feet.',
+  },
+  e05: {
+    name: 'Five of Pentacles',
+    meaningUp: 'Material trouble, destitution; ruin, discordant love, disorder, chaos.',
+    meaningReversed: 'Disorder, chaos, ruin, discord, profligacy.',
+    description: 'Two mendicants in a snowstorm pass a lighted casement.',
+  },
+  e06: {
+    name: 'Six of Pentacles',
+    meaningUp:
+      'Present prosperity, generosity, gifts; also attention, vigilance; now is the accepted time.',
+    meaningReversed: 'Desire, cupidity, envy, jealousy, illusion.',
+    description:
+      'A person in the guise of a merchant weighs money in a pair of scales and distributes it to the needy.',
+  },
+  e07: {
+    name: 'Seven of Pentacles',
+    meaningUp: 'Money, business, barter; altercation, quarrels; innocence, ingenuity, purgation.',
+    meaningReversed: 'Cause for anxiety regarding money; also a hint to put money on usury.',
+    description:
+      'A young man, leaning on his staff, looks intently at seven pentacles attached to a clump of greenery on his right.',
+  },
+  e08: {
+    name: 'Eight of Pentacles',
+    meaningUp: 'Work, employment, commission, craftsmanship, skill in craft and business.',
+    meaningReversed: 'Voided ambition, vanity, cupidity, exaction, usury. Also a lethal weapon.',
+    description: 'An artist in stone at his work, which he exhibits in the form of trophies.',
+  },
+  e09: {
+    name: 'Nine of Pentacles',
+    meaningUp: 'Prudence, safety, success, accomplishment, certitude, discernment.',
+    meaningReversed: 'Roguery, deception, voided project, bad faith.',
+    description:
+      'A woman, with a bird upon her wrist, stands amidst a great abundance of grapevines in the garden of a manorial house.',
+  },
+  e10: {
+    name: 'Ten of Pentacles',
+    meaningUp: 'Gain, riches; family matters, archives, extraction, the abode of a family.',
+    meaningReversed: 'Chance, fatality, loss, robbery, games of hazard.',
+    description: 'A man and woman beneath an archway which gives entrance to a house and domain.',
+  },
+  e11: {
+    name: 'Page of Pentacles',
+    meaningUp:
+      'Application, study, scholarship, reflection; also news, messages and the bringer thereof.',
+    meaningReversed: 'Prodigality, dissipation, liberality, luxury; unfavourable news.',
+    description:
+      'A youthful figure, looking intently at the pentacle which hovers over his raised hands.',
+  },
+  e12: {
+    name: 'Knight of Pentacles',
+    meaningUp: 'Utility, serviceableness, interest, responsibility, rectitude.',
+    meaningReversed: 'Inertia, idleness, repose, stagnation; also discouragement, carelessness.',
+    description: 'He rides a slow, enduring, heavy horse, to which his own aspect corresponds.',
+  },
+  e13: {
+    name: 'Queen of Pentacles',
+    meaningUp: 'Opulence, generosity, magnificence, security, liberty.',
+    meaningReversed: 'Evil, suspicion, suspense, fear, mistrust.',
+    description:
+      'The face suggests greatness of soul; she has the serious cast of intelligence; she contemplates her symbol.',
+  },
+  e14: {
+    name: 'King of Pentacles',
+    meaningUp:
+      'Valour, realizing intelligence, business and normal intellectual aptitude; also mathematical gifts.',
+    meaningReversed: 'Vice, weakness, ugliness, perversity, corruption, peril.',
+    description:
+      'The figure calls for no special description; the face is rather dark, suggesting also courage, but somewhat lethargic.',
+  },
+
+  // Special cards
+  z00: {
+    name: 'Blank Card',
+    meaningUp: 'A card of infinite potential and mystery.',
+    meaningReversed: 'Uncertainty, the unknown.',
+    description: 'A blank canvas awaiting its destiny.',
+  },
+  z01: {
+    name: 'Card Back',
+    meaningUp: 'The hidden, the unrevealed.',
+    meaningReversed: 'Secrets kept, mysteries concealed.',
+    description: 'The ornate back of the tarot deck, hiding what lies beneath.',
+  },
+};
+
+/**
+ * Get card details by filename (without extension)
+ */
+export function getCardDetails(filename: string): CardDetails | null {
+  const key = filename.replace(/\.[^/.]+$/, '');
+  return CARD_DETAILS[key] || null;
+}
+
+/**
+ * Get card details by CardInfo
+ */
+export function getCardDetailsFromInfo(card: { filename: string }): CardDetails | null {
+  return getCardDetails(card.filename);
+}

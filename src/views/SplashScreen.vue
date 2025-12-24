@@ -1,252 +1,91 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import gsap from 'gsap';
+import { MENU_ITEMS } from '@/constants/menuItems';
+import { generateParticles, generateDecorativeCards } from '@/constants/animationConfig';
+import { useMenuAnimation } from '@/composables/useMenuAnimation';
 
-const router = useRouter();
 const { t } = useI18n();
 
+// Container ref for exit animation
 const containerRef = ref<HTMLElement | null>(null);
-const titleRef = ref<HTMLElement | null>(null);
-const subtitleRef = ref<HTMLElement | null>(null);
-const enterButtonRef = ref<HTMLElement | null>(null);
 
-const isReady = ref(false);
-let timeline: gsap.core.Timeline | null = null;
+// Generate background elements
+const particles = generateParticles();
+const decorativeCards = generateDecorativeCards();
 
-// Generate floating stars/particles
-const stars = Array.from({ length: 50 }, (_, i) => ({
-  id: i,
-  left: `${Math.random() * 100}%`,
-  top: `${Math.random() * 100}%`,
-  size: Math.random() * 4 + 2,
-  delay: Math.random() * 3,
-  duration: Math.random() * 2 + 3,
-}));
-
-// Generate tarot card elements for the animation
-const tarotCards = Array.from({ length: 7 }, (_, i) => ({
-  id: i,
-  rotation: (i - 3) * 15,
-  delay: i * 0.1,
-}));
-
-function navigateToHome(): void {
-  if (!isReady.value) return;
-
-  // Exit animation
-  const exitTimeline = gsap.timeline({
-    onComplete: () => {
-      router.push('/home');
-    },
-  });
-
-  exitTimeline
-    .to('.tarot-card', {
-      y: -window.innerHeight,
-      rotation: '+=360',
-      stagger: 0.05,
-      duration: 0.8,
-      ease: 'power2.in',
-    })
-    .to(
-      [titleRef.value, subtitleRef.value, enterButtonRef.value],
-      {
-        opacity: 0,
-        y: -50,
-        stagger: 0.1,
-        duration: 0.4,
-        ease: 'power2.in',
-      },
-      '-=0.6'
-    )
-    .to(
-      containerRef.value,
-      {
-        opacity: 0,
-        duration: 0.3,
-      },
-      '-=0.2'
-    );
-}
-
-onMounted(() => {
-  timeline = gsap.timeline();
-
-  // Initial state
-  gsap.set([titleRef.value, subtitleRef.value, enterButtonRef.value], {
-    opacity: 0,
-    y: 50,
-  });
-  gsap.set('.tarot-card', {
-    opacity: 0,
-    y: 100,
-    rotation: -180,
-    scale: 0,
-  });
-  gsap.set('.star', {
-    opacity: 0,
-    scale: 0,
-  });
-
-  // Animation sequence
-  timeline
-    // Stars twinkle in
-    .to('.star', {
-      opacity: (_i) => 0.3 + Math.random() * 0.7,
-      scale: 1,
-      duration: 0.5,
-      stagger: {
-        each: 0.02,
-        from: 'random',
-      },
-      ease: 'power2.out',
-    })
-    // Cards fan out from center
-    .to(
-      '.tarot-card',
-      {
-        opacity: 1,
-        y: 0,
-        rotation: (i) => (i - 3) * 15,
-        scale: 1,
-        duration: 1,
-        stagger: 0.1,
-        ease: 'elastic.out(1, 0.5)',
-      },
-      '-=0.3'
-    )
-    // Title reveals with golden glow
-    .to(
-      titleRef.value,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-      },
-      '-=0.5'
-    )
-    // Subtitle fades in
-    .to(
-      subtitleRef.value,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-      },
-      '-=0.4'
-    )
-    // Enter button appears with pulse
-    .to(
-      enterButtonRef.value,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'back.out(1.7)',
-        onComplete: () => {
-          isReady.value = true;
-          // Add floating animation to cards
-          gsap.to('.tarot-card', {
-            y: '-=10',
-            duration: 2,
-            ease: 'sine.inOut',
-            yoyo: true,
-            repeat: -1,
-            stagger: 0.2,
-          });
-          // Pulse animation on button
-          gsap.to(enterButtonRef.value, {
-            boxShadow: '0 0 30px rgba(201, 162, 39, 0.6)',
-            duration: 1,
-            ease: 'sine.inOut',
-            yoyo: true,
-            repeat: -1,
-          });
-        },
-      },
-      '-=0.2'
-    );
-
-  // Continuous star twinkling
-  gsap.to('.star', {
-    opacity: 'random(0.2, 1)',
-    duration: 'random(1, 3)',
-    ease: 'sine.inOut',
-    yoyo: true,
-    repeat: -1,
-    stagger: {
-      each: 0.1,
-      from: 'random',
-    },
-  });
-});
-
-onUnmounted(() => {
-  timeline?.kill();
-  gsap.killTweensOf('.tarot-card');
-  gsap.killTweensOf('.star');
-  gsap.killTweensOf(enterButtonRef.value);
-});
+// Use animation composable
+const { isReady, navigateTo } = useMenuAnimation(particles, decorativeCards, containerRef);
 </script>
 
 <template>
-  <div ref="containerRef" class="splash-container">
-    <!-- Animated stars background -->
-    <div ref="starsRef" class="stars-container">
+  <div ref="containerRef" class="menu-container">
+    <!-- Floating particles background -->
+    <div class="particles-layer">
       <div
-        v-for="star in stars"
-        :key="star.id"
-        class="star"
+        v-for="particle in particles"
+        :key="`particle-${particle.id}`"
+        class="particle"
         :style="{
-          left: star.left,
-          top: star.top,
-          width: `${star.size}px`,
-          height: `${star.size}px`,
+          left: `${particle.x}%`,
+          top: `${particle.y}%`,
+          width: `${particle.size}px`,
+          height: `${particle.size}px`,
         }"
       />
     </div>
 
-    <!-- Mystical circle backdrop -->
-    <div class="mystic-circle" />
-
-    <!-- Tarot cards animation -->
-    <div ref="cardsRef" class="cards-container">
+    <!-- Decorative floating tarot cards -->
+    <div class="decorative-cards-layer">
       <div
-        v-for="card in tarotCards"
-        :key="card.id"
-        class="tarot-card"
-        :style="{ '--rotation': `${card.rotation}deg` }"
+        v-for="card in decorativeCards"
+        :key="`deco-${card.id}`"
+        class="decorative-card"
+        :style="{
+          left: `${card.x}%`,
+          top: `${card.y}%`,
+          '--rotation': `${card.rotation}deg`,
+          '--scale': card.scale,
+        }"
       >
-        <div class="card-inner">
-          <div class="card-pattern" />
-          <div class="card-symbol">★</div>
+        <div class="deco-card-inner">
+          <div class="deco-card-pattern" />
+          <span class="deco-card-symbol">✦</span>
         </div>
       </div>
     </div>
 
-    <!-- Title and content -->
-    <div class="content">
-      <h1 ref="titleRef" class="title">{{ t('app.title') }}</h1>
-      <p ref="subtitleRef" class="subtitle">{{ t('app.description') }}</p>
+    <!-- Header section -->
+    <header class="menu-header">
+      <h1 class="app-title">{{ t('app.title') }}</h1>
+      <p class="app-subtitle">{{ t('app.description') }}</p>
+    </header>
+
+    <!-- Menu cards grid -->
+    <nav class="menu-grid">
       <button
-        ref="enterButtonRef"
-        class="enter-button"
+        v-for="item in MENU_ITEMS"
+        :key="item.id"
+        class="menu-card"
         :disabled="!isReady"
-        @click="navigateToHome"
+        @click="navigateTo(item.route)"
       >
-        <span class="button-text">{{ t('navigation.home') }}</span>
-        <span class="button-arrow">→</span>
+        <div class="card-glow" />
+        <div class="card-content">
+          <span class="card-icon">{{ item.icon }}</span>
+          <div class="card-text">
+            <h2 class="card-title">{{ t(item.titleKey) }}</h2>
+            <p class="card-description">{{ t(item.descKey) }}</p>
+          </div>
+        </div>
+        <div class="card-shine" />
       </button>
-    </div>
+    </nav>
   </div>
 </template>
 
 <style scoped lang="scss">
-.splash-container {
+.menu-container {
   position: fixed;
   inset: 0;
   display: flex;
@@ -255,179 +94,268 @@ onUnmounted(() => {
   justify-content: center;
   background: $gradient-background;
   overflow: hidden;
+  padding: $spacing-4;
+  perspective: 1000px;
 }
 
-.stars-container {
+// Particles layer
+.particles-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
-.star {
+.particle {
   position: absolute;
-  background: $color-primary-light;
+  background: radial-gradient(circle, $color-primary-light 0%, transparent 70%);
   border-radius: $radius-full;
-  box-shadow: 0 0 6px $color-primary-light;
+  box-shadow: 0 0 8px $color-primary-light;
 }
 
-.mystic-circle {
+// Decorative cards layer
+.decorative-cards-layer {
   position: absolute;
-  width: 500px;
-  height: 500px;
-  border: 2px solid rgba($color-primary, 0.2);
-  border-radius: $radius-full;
-  animation: rotate 60s linear infinite;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 20px;
-    border: 1px solid rgba($color-primary, 0.15);
-    border-radius: $radius-full;
-  }
-
-  &::after {
-    inset: 50px;
-    border-style: dashed;
-    animation: rotate-reverse 30s linear infinite;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate-reverse {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-.cards-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
-.tarot-card {
+.decorative-card {
   position: absolute;
-  width: 80px;
-  height: 130px;
-  transform-origin: center 200%;
-  transform: rotate(var(--rotation));
+  width: 50px;
+  height: 78px;
+  transform: translate(-50%, -50%) rotate(var(--rotation)) scale(var(--scale));
+  transform-style: preserve-3d;
 
-  .card-inner {
+  @media (max-width: 600px) {
+    width: 35px;
+    height: 55px;
+  }
+
+  .deco-card-inner {
     width: 100%;
     height: 100%;
     background: $gradient-primary;
-    border-radius: $radius-md;
-    border: 2px solid $color-primary-dark;
+    border-radius: $radius-sm;
+    border: 1px solid $color-primary-dark;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: $shadow-lg;
+    box-shadow:
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba($color-primary, 0.15);
     position: relative;
     overflow: hidden;
   }
 
-  .card-pattern {
+  .deco-card-pattern {
     position: absolute;
-    inset: 4px;
-    border: 1px solid rgba($color-bg-dark, 0.3);
-    border-radius: $radius-sm;
+    inset: 3px;
+    border: 1px solid rgba($color-bg-dark, 0.2);
+    border-radius: 2px;
+  }
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 4px;
-      border: 1px solid rgba($color-bg-dark, 0.2);
-      border-radius: 2px;
+  .deco-card-symbol {
+    font-size: 1rem;
+    color: $color-bg-dark;
+    opacity: 0.7;
+    z-index: 1;
+
+    @media (max-width: 600px) {
+      font-size: 0.75rem;
     }
   }
+}
 
-  .card-symbol {
-    font-size: $font-size-2xl;
-    color: $color-bg-dark;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-    z-index: 1;
+// Header
+.menu-header {
+  text-align: center;
+  margin-bottom: $spacing-8;
+  z-index: 2;
+
+  @media (max-width: 600px) {
+    margin-bottom: $spacing-6;
   }
 }
 
-.content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  margin-top: $spacing-16;
-}
-
-.title {
+.app-title {
   font-family: $font-family-heading;
-  font-size: $font-size-5xl;
+  font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: $font-weight-bold;
-  background: $gradient-primary-horizontal;
+  background: linear-gradient(135deg, #ffffff 0%, $color-primary-light 50%, $color-primary 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  margin-bottom: $spacing-4;
+  margin-bottom: $spacing-3;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
   letter-spacing: $letter-spacing-wide;
 }
 
-.subtitle {
-  font-size: $font-size-lg;
-  color: $color-text-secondary;
-  margin-bottom: $spacing-10;
+.app-subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.6);
   max-width: 400px;
+  line-height: 1.5;
 }
 
-.enter-button {
-  display: inline-flex;
+// Menu grid
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-4;
+  max-width: 600px;
+  width: 100%;
+  z-index: 2;
+  padding: $spacing-2;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: $spacing-3;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 900px;
+  }
+}
+
+// Menu card
+.menu-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: $spacing-3;
-  padding: $spacing-4 $spacing-8;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
-  color: $color-bg-dark;
-  background: $gradient-primary;
+  justify-content: center;
+  padding: $spacing-5 $spacing-3;
+  background: rgba($color-bg-dark, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba($color-primary, 0.25);
   border-radius: $radius-lg;
   cursor: pointer;
   transition:
-    transform $transition-base,
-    box-shadow $transition-base;
-  box-shadow: $shadow-glow-primary;
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  min-height: 140px;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    padding: $spacing-4 $spacing-3;
+    min-height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: $spacing-3;
+  }
 
   &:hover:not(:disabled) {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-6px) scale(1.03) rotateX(5deg);
+    border-color: rgba($color-primary, 0.6);
+    box-shadow:
+      0 15px 40px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba($color-primary, 0.2);
+
+    .card-glow {
+      opacity: 1;
+    }
+
+    .card-icon {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .card-shine {
+      transform: translateX(200%);
+    }
   }
 
   &:active:not(:disabled) {
-    transform: translateY(-1px) scale(0.98);
+    transform: translateY(-2px) scale(0.98);
   }
 
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
   }
+}
 
-  .button-arrow {
-    transition: transform $transition-base;
+.card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba($color-primary, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-20deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+
+  @media (max-width: 500px) {
+    flex-direction: row;
+    text-align: left;
+    gap: $spacing-3;
+    width: 100%;
+  }
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: $spacing-2;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  @media (max-width: 500px) {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+}
+
+.card-text {
+  @media (max-width: 500px) {
+    flex: 1;
+  }
+}
+
+.card-title {
+  font-family: $font-family-heading;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary-light;
+  margin-bottom: $spacing-1;
+
+  @media (max-width: 500px) {
+    font-size: $font-size-sm;
   }
 
-  &:hover .button-arrow {
-    transform: translateX(4px);
+  @media (min-width: 800px) {
+    font-size: $font-size-sm;
+  }
+}
+
+.card-description {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  line-height: 1.4;
+
+  @media (min-width: 800px) {
+    font-size: 0.7rem;
   }
 }
 </style>

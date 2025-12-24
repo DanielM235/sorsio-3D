@@ -87,6 +87,7 @@ src/
 │   ├── ui/           # Generic UI components
 │   └── three/        # TroisJS/3D components
 ├── composables/      # Vue composables (reusable logic)
+├── constants/        # Application constants and configuration
 ├── locales/          # i18n translation files
 │   ├── en.json
 │   ├── pt-BR.json
@@ -95,6 +96,57 @@ src/
 ├── types/            # TypeScript type definitions
 ├── utils/            # Utility functions
 └── views/            # Page-level components
+```
+
+### Component Responsibility Principle
+
+Components should be limited to their display responsibility. Extract data and logic into separate files:
+
+- **Interfaces/Types**: **One file per interface, class, or type** in `src/types/` with PascalCase filenames matching the type name (e.g., `MenuItem.ts`, `TarotCard.ts`). This ensures easy refactoring and clear dependencies.
+- **Constants**: Define in `src/constants/` with descriptive filenames (e.g., `menuItems.ts`, `animationConfig.ts`)
+- **Business Logic**: Extract into composables in `src/composables/`
+- **Utility Functions**: Place in `src/utils/`
+
+### Type Definition Guidelines
+
+**IMPORTANT**: Each interface, class, or type MUST be defined in its own dedicated file:
+
+```
+src/types/
+├── MenuItem.ts           # interface MenuItem { ... }
+├── Particle.ts           # interface Particle { ... }
+├── DecorativeCard.ts     # interface DecorativeCard { ... }
+├── TarotCard.ts          # interface TarotCard { ... }
+├── CardSuit.ts           # type CardSuit = ...
+├── CardOrientation.ts    # type CardOrientation = ...
+└── index.ts              # Re-exports all types for convenience
+```
+
+Benefits of this approach:
+- **Easy refactoring**: Renaming or moving a type only affects one file
+- **Clear dependencies**: Import statements show exactly what types are used
+- **Smaller diffs**: Changes to one type don't affect unrelated types
+- **Better code navigation**: File names directly match type names
+
+The `index.ts` file should re-export all types for convenient barrel imports:
+```typescript
+export * from './MenuItem';
+export * from './TarotCard';
+// ... etc
+```
+
+Example structure for a feature:
+```
+src/
+├── types/
+│   ├── MenuItem.ts       # MenuItem interface only
+│   └── index.ts          # Re-exports
+├── constants/
+│   └── menuItems.ts      # MENU_ITEMS constant array
+├── composables/
+│   └── useMenuAnimation.ts  # Animation logic
+└── views/
+    └── MenuView.vue      # Only display logic, imports from above
 ```
 
 ### Naming Conventions

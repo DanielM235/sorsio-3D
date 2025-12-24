@@ -1,59 +1,80 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import LanguageSelectorCompact from '@/components/ui/LanguageSelectorCompact.vue';
+import { ref, computed } from 'vue';
+import CardFilterMenu from '@/components/ui/CardFilterMenu.vue';
 import TarotGallery from '@/components/three/TarotGallery.vue';
 import type { CardInfo } from '@/data/cards';
-
-const { t } = useI18n();
+import { getCardDetailsFromInfo, type CardDetails } from '@/data/cardDetails';
 
 const selectedCard = ref<CardInfo | null>(null);
-const showHint = ref(true);
+const cardFilter = ref<'all' | 'major'>('major');
+
+const cardDetails = computed<CardDetails | null>(() => {
+  if (!selectedCard.value) return null;
+  return getCardDetailsFromInfo(selectedCard.value);
+});
 
 function onCardSelected(card: CardInfo | null): void {
   selectedCard.value = card;
-  if (card) {
-    showHint.value = false;
-  }
 }
-
-// Hide hint after a few seconds
-setTimeout(() => {
-  showHint.value = false;
-}, 5000);
 </script>
 
 <template>
   <div class="home-container">
     <!-- 3D Gallery takes full screen -->
-    <TarotGallery @card-selected="onCardSelected" />
+    <TarotGallery :filter="cardFilter" @card-selected="onCardSelected" />
 
     <!-- Overlay UI -->
     <div class="overlay-ui">
-      <!-- Top right: Language selector -->
-      <div class="corner-top-right">
-        <LanguageSelectorCompact />
+      <!-- Top left: Card filter menu -->
+      <div class="corner-top-left">
+        <CardFilterMenu v-model="cardFilter" />
       </div>
 
-      <!-- Bottom center: Title and hint -->
-      <div class="bottom-center">
-        <Transition name="fade">
-          <div v-if="!selectedCard" class="title-area">
-            <h1 class="app-title">{{ t('app.title') }}</h1>
-            <Transition name="fade">
-              <p v-if="showHint" class="hint">{{ t('app.description') }}</p>
-            </Transition>
-          </div>
-        </Transition>
+      <!-- Card details panel (right side) -->
+      <Transition name="slide-left">
+        <div v-if="selectedCard && cardDetails" class="card-details-panel">
+          <div class="card-details-content">
+            <!-- Card header -->
+            <div class="card-header">
+              <span class="card-category-badge">{{ selectedCard.category }}</span>
+              <h2 class="card-name">{{ cardDetails.name }}</h2>
+            </div>
 
-        <!-- Selected card info -->
-        <Transition name="slide-up">
-          <div v-if="selectedCard" class="card-info">
-            <span class="card-category">{{ selectedCard.category }}</span>
-            <span class="card-number">#{{ selectedCard.number }}</span>
+            <!-- Divider -->
+            <div class="divider" />
+
+            <!-- Description -->
+            <div class="card-section">
+              <h3 class="section-title">
+                <span class="section-icon">📜</span>
+                Description
+              </h3>
+              <p class="section-text">{{ cardDetails.description }}</p>
+            </div>
+
+            <!-- Meanings -->
+            <div class="meanings-container">
+              <!-- Upright meaning -->
+              <div class="meaning-card meaning-upright">
+                <div class="meaning-header">
+                  <span class="meaning-icon">☀️</span>
+                  <h4 class="meaning-title">Upright</h4>
+                </div>
+                <p class="meaning-text">{{ cardDetails.meaningUp }}</p>
+              </div>
+
+              <!-- Reversed meaning -->
+              <div class="meaning-card meaning-reversed">
+                <div class="meaning-header">
+                  <span class="meaning-icon">🌙</span>
+                  <h4 class="meaning-title">Reversed</h4>
+                </div>
+                <p class="meaning-text">{{ cardDetails.meaningReversed }}</p>
+              </div>
+            </div>
           </div>
-        </Transition>
-      </div>
+        </div>
+      </Transition>
     </div>
   </div>
 </template>
@@ -77,80 +98,182 @@ setTimeout(() => {
   }
 }
 
-.corner-top-right {
+.corner-top-left {
   position: absolute;
   top: $spacing-4;
-  right: $spacing-4;
+  left: $spacing-4;
 }
 
-.bottom-center {
+// Card Details Panel
+.card-details-panel {
   position: absolute;
-  bottom: $spacing-8;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 90vw;
+  background: linear-gradient(
+    135deg,
+    rgba($color-bg-dark, 0.95) 0%,
+    rgba($color-bg-medium, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-left: 1px solid rgba($color-primary, 0.3);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba($color-primary, 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-primary, 0.3);
+    border-radius: 3px;
+  }
+}
+
+.card-details-content {
+  padding: $spacing-8 $spacing-6;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.card-header {
   text-align: center;
 }
 
-.title-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $spacing-2;
+.card-category-badge {
+  display: inline-block;
+  padding: $spacing-1 $spacing-4;
+  background: linear-gradient(
+    135deg,
+    rgba($color-primary, 0.2) 0%,
+    rgba($color-secondary, 0.2) 100%
+  );
+  border: 1px solid rgba($color-primary, 0.4);
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-widest;
+  color: $color-primary;
+  margin-bottom: $spacing-3;
 }
 
-.app-title {
+.card-name {
   font-family: $font-family-heading;
-  font-size: $font-size-3xl;
+  font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
   margin: 0;
   background: $gradient-primary-horizontal;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 40px rgba($color-primary, 0.3);
-  letter-spacing: $letter-spacing-wider;
+  line-height: 1.2;
 }
 
-.hint {
-  font-size: $font-size-sm;
-  color: $color-text-muted;
-  margin: 0;
-  animation: pulse 2s ease-in-out infinite;
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba($color-primary, 0.5) 50%,
+    transparent 100%
+  );
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
+.card-section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
 }
 
-.card-info {
+.section-title {
   display: flex;
   align-items: center;
-  gap: $spacing-3;
-  padding: $spacing-3 $spacing-6;
-  background: rgba($color-bg-dark, 0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid $color-card-border;
-  border-radius: $radius-lg;
-}
-
-.card-category {
+  gap: $spacing-2;
   font-size: $font-size-sm;
-  color: $color-primary;
-  text-transform: uppercase;
-  letter-spacing: $letter-spacing-widest;
   font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  margin: 0;
 }
 
-.card-number {
-  font-size: $font-size-lg;
+.section-icon {
+  font-size: $font-size-base;
+}
+
+.section-text {
+  font-size: $font-size-sm;
   color: $color-text-primary;
-  font-weight: $font-weight-bold;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+}
+
+.meanings-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+}
+
+.meaning-card {
+  padding: $spacing-4;
+  border-radius: $radius-lg;
+  border: 1px solid;
+}
+
+.meaning-upright {
+  background: linear-gradient(
+    135deg,
+    rgba($color-primary, 0.1) 0%,
+    rgba($color-primary, 0.05) 100%
+  );
+  border-color: rgba($color-primary, 0.3);
+}
+
+.meaning-reversed {
+  background: linear-gradient(
+    135deg,
+    rgba($color-secondary, 0.1) 0%,
+    rgba($color-secondary, 0.05) 100%
+  );
+  border-color: rgba($color-secondary, 0.3);
+}
+
+.meaning-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  margin-bottom: $spacing-2;
+}
+
+.meaning-icon {
+  font-size: $font-size-lg;
+}
+
+.meaning-title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.meaning-text {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  line-height: 1.6;
+  margin: 0;
 }
 
 // Transitions
@@ -173,5 +296,35 @@ setTimeout(() => {
 .slide-up-leave-to {
   opacity: 0;
   transform: translateY(20px);
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .card-details-panel {
+    width: 100%;
+    max-width: 100%;
+    top: auto;
+    bottom: 0;
+    height: 50vh;
+    border-left: none;
+    border-top: 1px solid rgba($color-primary, 0.3);
+    border-radius: $radius-xl $radius-xl 0 0;
+  }
+
+  .slide-left-enter-from,
+  .slide-left-leave-to {
+    transform: translateY(100%);
+  }
 }
 </style>

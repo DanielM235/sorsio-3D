@@ -1,8 +1,18 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, shallowRef } from 'vue';
+import { ref, onMounted, onUnmounted, shallowRef, watch } from 'vue';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import { ALL_CARDS, getCardImagePath, type CardInfo } from '@/data/cards';
+import { ALL_CARDS, CARDS_BY_CATEGORY, getCardImagePath, type CardInfo } from '@/data/cards';
+
+// Props
+const props = withDefaults(
+  defineProps<{
+    filter?: 'all' | 'major';
+  }>(),
+  {
+    filter: 'all',
+  }
+);
 
 // Emits
 const emit = defineEmits<{
@@ -28,15 +38,19 @@ let focusedCard: THREE.Mesh | null = null;
 let cameraLight: THREE.SpotLight; // Light that follows camera
 let centerHighlight: THREE.PointLight; // Highlight for center card
 
-// Camera state
-const defaultCameraPosition = new THREE.Vector3(0, 0, 40);
+// Camera state - Position camera to face The Magician (a01)
+// After reversing, a01 is at index 21, angle = 21 * 0.45 ≈ 9.45 rad ≈ 3.17 rad (after subtracting 2π)
+// This places it roughly at angle π, on the negative X axis
+// theta = -PI/2 places camera on negative X axis to face The Magician
+const defaultCameraPosition = new THREE.Vector3(-40, 0, 0);
 const defaultCameraLookAt = new THREE.Vector3(0, 0, 0);
 
 // Manual camera control state
 let isDragging = false;
 let hasUserInteracted = false; // Track if user has manually controlled the view
 let previousMousePosition = { x: 0, y: 0 };
-let sphericalPosition = { theta: 0, phi: Math.PI / 2, radius: 40 }; // horizontal angle, vertical angle, distance
+// theta = -PI/2 means camera on negative X axis
+let sphericalPosition = { theta: -Math.PI / 2, phi: Math.PI / 2, radius: 40 };
 const MIN_RADIUS = 15;
 const MAX_RADIUS = 80;
 const MIN_PHI = 0.2; // Prevent camera from going too vertical
@@ -67,6 +81,7 @@ function initScene(): void {
   // Camera
   camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 200);
   camera.position.copy(defaultCameraPosition);
+  camera.lookAt(defaultCameraLookAt);
 
   // Renderer
   renderer = new THREE.WebGLRenderer({
@@ -197,7 +212,12 @@ function loadCards(): void {
   const textureLoader = new THREE.TextureLoader();
   const cardGeometry = new THREE.BoxGeometry(CARD_WIDTH, CARD_HEIGHT, CARD_DEPTH);
 
-  ALL_CARDS.forEach((cardInfo, index) => {
+  // Get cards based on filter and reverse so first card is on the outside
+  const cardsToLoad = (props.filter === 'major' ? CARDS_BY_CATEGORY.major : ALL_CARDS)
+    .slice()
+    .reverse();
+
+  cardsToLoad.forEach((cardInfo, index) => {
     const texture = textureLoader.load(getCardImagePath(cardInfo));
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.minFilter = THREE.LinearMipmapLinearFilter;
@@ -240,7 +260,7 @@ function loadCards(): void {
     // Spiral layout
     const angle = index * SPIRAL_ANGLE_INCREMENT;
     const radius = SPIRAL_RADIUS_START + index * SPIRAL_RADIUS_INCREMENT;
-    const y = (index - ALL_CARDS.length / 2) * SPIRAL_Y_INCREMENT;
+    const y = (index - cardsToLoad.length / 2) * SPIRAL_Y_INCREMENT;
 
     mesh.position.set(Math.cos(angle) * radius, y, Math.sin(angle) * radius);
 
@@ -650,6 +670,54 @@ function cleanup(): void {
     containerRef.value.removeChild(renderer.domElement);
   }
 }
+
+function clearCards(): void {
+  // Kill animations for existing cards
+  cardMeshes.forEach((mesh) => {
+    gsap.killTweensOf(mesh.position);
+    gsap.killTweensOf(mesh.scale);
+    gsap.killTweensOf(mesh.rotation);
+
+    // Remove from scene
+    scene.remove(mesh);
+
+    // Dispose geometry and materials
+    mesh.geometry.dispose();
+    const materials = mesh.material as THREE.Material[];
+    materials.forEach((mat) => mat.dispose());
+  });
+
+  // Clear arrays and map
+  cardMeshes = [];
+  cardMap.clear();
+  hoveredCard = null;
+  focusedCard = null;
+  selectedCard.value = null;
+}
+
+function reloadCards(): void {
+  if (!scene || !renderer) return;
+
+  // Clear existing cards
+  clearCards();
+
+  // Reset camera to default
+  hasUserInteracted = false;
+  sphericalPosition = { theta: -Math.PI / 2, phi: Math.PI / 2, radius: 40 };
+  camera.position.copy(defaultCameraPosition);
+  camera.lookAt(defaultCameraLookAt);
+
+  // Load new cards
+  loadCards();
+}
+
+// Watch for filter changes
+watch(
+  () => props.filter,
+  () => {
+    reloadCards();
+  }
+);
 
 onMounted(() => {
   initScene();

@@ -4,8 +4,19 @@
     "description": "Aplicativo educacional interativo para o Tarô de Marselha",
     "loading": "Carregando..."
   },
+  "menu": {
+    "explore": "Explorar Cartas",
+    "exploreDesc": "Descubra as 78 cartas do Tarô de Marselha",
+    "simpleDraw": "Tiragem Simples",
+    "simpleDrawDesc": "Tire uma carta e receba sua mensagem",
+    "resources": "Recursos",
+    "resourcesDesc": "Links externos e conteúdos adicionais",
+    "about": "Sobre",
+    "aboutDesc": "Saiba mais sobre este projeto"
+  },
   "navigation": {
     "home": "Início",
+    "back": "Voltar",
     "learn": "Aprender",
     "practice": "Praticar",
     "about": "Sobre"
