@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import LanguageSelectorCompact from '@/components/ui/LanguageSelectorCompact.vue';
+import BurgerMenu from '@/components/ui/BurgerMenu.vue';
 </script>
 
 <template>
   <div class="app-wrapper">
     <RouterView />
 
-    <!-- Global language selector - always visible -->
-    <div class="global-language-selector">
+    <!-- Global navigation controls - always visible -->
+    <div class="global-nav-left">
+      <BurgerMenu />
+    </div>
+
+    <div class="global-nav-right">
       <LanguageSelectorCompact />
     </div>
   </div>
@@ -25,7 +30,14 @@ import LanguageSelectorCompact from '@/components/ui/LanguageSelectorCompact.vue
   height: 100%;
 }
 
-.global-language-selector {
+.global-nav-left {
+  position: fixed;
+  top: $spacing-4;
+  left: $spacing-4;
+  z-index: $z-index-fixed;
+}
+
+.global-nav-right {
   position: fixed;
   top: $spacing-4;
   right: $spacing-4;

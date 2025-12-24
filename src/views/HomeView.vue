@@ -402,7 +402,7 @@ watch(
 .corner-top-left {
   position: absolute;
   top: $spacing-4;
-  left: $spacing-4;
+  left: calc(#{$spacing-4} + 52px + #{$spacing-3}); // After burger menu (44px + spacing)
 }
 
 // Card Details Panel
